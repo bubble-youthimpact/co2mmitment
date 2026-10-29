@@ -214,10 +214,11 @@ body.lb-open{overflow:hidden}
 .final h2{font-size:34px;margin-bottom:20px}
 .final p{max-width:560px;margin-left:auto;margin-right:auto}
 
-/* wider dashboard + ESG pages to match header */
+/* wider dashboard page to match header */
 #p-dashboard #carbon-dash{padding-left:24px;padding-right:24px}
 #p-dashboard #carbon-dash .hdr,#p-dashboard #carbon-dash .kpi-grid,#p-dashboard #carbon-dash .sec-hdr,#p-dashboard #carbon-dash .card,#p-dashboard #carbon-dash footer{max-width:1152px}
-@media (max-width:520px){#p-dashboard #carbon-dash,/* footer */
+@media (max-width:520px){#p-dashboard #carbon-dash{padding-left:16px;padding-right:16px}}
+/* footer */
 .foot{background:var(--footer);color:#d9dad5}
 .foot-wrap{max-width:1200px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
 .foot-top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:40px;padding-block:56px 44px}
