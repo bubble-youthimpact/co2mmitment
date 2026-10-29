@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://co2mmitment.com/miraebiz/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Miraebiz">
+<meta property="og:title" content="Miraebiz | Two Perspectives">
+<meta property="og:description" content="A visual campaign exploring greenwashing through AI-made ads and unedited photographs, by Ayden J. Park.">
+<meta property="og:url" content="https://co2mmitment.com/miraebiz/">
+<meta property="og:image" content="https://co2mmitment.com/miraebiz/media/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0c0a">
+<link rel="icon" href="media/favicon.svg" type="image/svg+xml">
+<title>Miraebiz | Two Perspectives</title>
+<meta name="description" content="Two Perspectives by Ayden J. Park: a visual campaign about greenwashing, told through AI-made ads and unedited photographs, plus ESG best practices from 30 companies. A Miraebiz project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: clean white pages with a deep-forest green band for each key moment; hero text left, film right */
+:root{
+  --forest:#0e3b2c; --forest-2:#145240; --green:#1f8a5b; --green-2:#17744b; --leaf:#7cc49a;
+  --mint:#eef7f1; --mint-2:#dcefe3; --ink:#12241c; --ink-2:#4a5a52; --ink-3:#7b8a82; --line:#e1e9e4; --bg:#ffffff;
+  --font:'Plus Jakarta Sans',-apple-system,'Segoe UI',system-ui,sans-serif;
+  --wrap:1200px; --r:16px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{margin:0;letter-spacing:-.02em;line-height:1.1;text-wrap:balance;overflow-wrap:break-word}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+@media (max-width:520px){.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.section{padding-block:96px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end;margin-bottom:44px}
+.sec-head h2{font-size:clamp(32px,4vw,46px);margin-top:12px}
+.sec-head > p{color:var(--ink-2);font-size:16.5px;max-width:52ch}
+@media (max-width:820px){.sec-head{grid-template-columns:minmax(0,1fr);gap:16px}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15px var(--font);padding:13px 22px;border-radius:999px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-2)}
+.btn-ghost{border-color:var(--mint-2);color:var(--forest);background:#fff}
+.btn-ghost:hover{border-color:var(--green);color:var(--green-2)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:#fff}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.brand{display:flex;align-items:center;text-decoration:none;font-weight:800;font-size:23px;letter-spacing:-.03em;color:var(--forest)}
+.links{display:flex;align-items:center;gap:2px}
+.links a{text-decoration:none;font-size:14.5px;font-weight:500;color:var(--ink-2);padding:8px 12px;border-radius:999px;white-space:nowrap;transition:background .15s,color .15s}
+.links a:hover{background:var(--mint);color:var(--forest)}
+.links a.out{margin-left:10px;border:1.5px solid var(--mint-2);color:var(--forest);font-weight:600;padding:8px 16px}
+.links a.out:hover{border-color:var(--green)}
+.menu{display:none;width:44px;height:44px;border:0;background:none;color:var(--forest);cursor:pointer;margin-right:-10px;border-radius:10px}
+@media (max-width:1060px){
+  .nav{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .menu{display:inline-grid;place-items:center}
+  .links{position:fixed;top:calc(72px + env(safe-area-inset-top,0px));left:0;right:0;bottom:0;background:#fff;flex-direction:column;align-items:stretch;gap:2px;overflow-y:auto;
+    padding:16px max(24px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(24px,env(safe-area-inset-left,0px));opacity:0;visibility:hidden;border-top:1px solid var(--line)}
+  .links.open{opacity:1;visibility:visible}
+  .links a{font-size:20px;padding:14px;border-radius:12px;color:var(--ink)}
+  .links a.out{margin:16px 0 0;text-align:center;font-size:16px}
+  body.menu-open{overflow:hidden}
+}
+
+/* hero */
+.hero{background:linear-gradient(180deg,var(--mint) 0%,#fff 100%);padding-block:72px 88px}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--mint-2);font-size:13px;font-weight:600;color:var(--green-2)}
+.pill i{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.hero h1{font-size:clamp(44px,6vw,72px);font-weight:800;color:var(--forest);margin:20px 0 18px;letter-spacing:-.035em;line-height:1.02}
+.hero h1 span{color:var(--green)}
+.hero .sub{font-size:18px;color:var(--ink-2);max-width:46ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.byline{margin-top:30px;display:flex;align-items:center;gap:12px;font-size:14px;color:var(--ink-2)}
+.byline b{color:var(--ink);font-weight:600}
+.avatar{width:38px;height:38px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.film{margin:0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:10px;box-shadow:0 24px 60px -30px rgba(14,59,44,.35)}
+.film video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:12px;background:#000}
+.film-cap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 6px 4px;font-size:13.5px;color:var(--ink-2)}
+.film-cap b{color:var(--ink);font-weight:600}
+@media (max-width:900px){.hero-in{grid-template-columns:minmax(0,1fr);gap:40px}.hero{padding-block:48px 64px}}
+
+/* statement */
+.statement-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px}
+.statement h2{font-size:clamp(32px,4vw,46px);color:var(--forest);margin-top:12px}
+.prose{font-size:17px;color:var(--ink-2)}
+.prose p+p{margin-top:14px}
+.prose strong{color:var(--ink);font-weight:600}
+.tag{display:inline-block;margin-top:20px;padding:6px 12px;border-radius:8px;background:var(--mint);color:var(--green-2);font-weight:700;font-size:14px}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
+.path{display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:var(--r);border:1px solid var(--line);text-decoration:none;transition:border-color .15s,box-shadow .15s,transform .15s}
+.path:hover{border-color:var(--green);box-shadow:0 18px 40px -26px rgba(14,59,44,.4);transform:translateY(-2px)}
+.path.dark{background:var(--forest);border-color:var(--forest);color:#fff}
+.path h3{font-size:24px}
+.path p{font-size:15px;color:var(--ink-2)}
+.path.dark p{color:#bcd6c8}
+.path .eyebrow{font-size:11.5px}
+.path.dark .eyebrow{color:var(--leaf)}
+.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:auto;padding-top:8px}
+.thumbs img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:left center;border-radius:6px}
+.path .go{font-size:14px;font-weight:600;color:var(--green)}
+.path.dark .go{color:var(--leaf)}
+@media (max-width:820px){.statement-in{grid-template-columns:minmax(0,1fr);gap:24px}.paths{grid-template-columns:minmax(0,1fr)}}
+
+/* series */
+.series.dark{background:var(--forest);color:#fff}
+.series.dark .eyebrow{color:var(--leaf)}
+.series.dark .sec-head h2{color:#fff}
+.series.dark .sec-head > p{color:#bcd6c8}
+.series.light{background:var(--mint)}
+.series.light .sec-head h2{color:var(--forest)}
+.quote{font-size:clamp(19px,2.1vw,23px);font-weight:600;line-height:1.35;margin-top:16px;max-width:30ch}
+.series.dark .quote{color:#e3f1e9}
+.series.light .quote{color:var(--green-2)}
+.series-note{margin-top:40px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.note{border-radius:var(--r);padding:20px 22px;font-size:15px}
+.series.dark .note{background:var(--forest-2);color:#cfe3d7}
+.series.light .note{background:#fff;color:var(--ink-2);border:1px solid var(--mint-2)}
+.note b{display:block;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.series.dark .note b{color:var(--leaf)}
+.series.light .note b{color:var(--green)}
+@media (max-width:820px){.series-note{grid-template-columns:minmax(0,1fr)}}
+.eps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+@media (max-width:1060px){.eps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.eps{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.ep{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;border-radius:var(--r);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.ep:focus-visible{outline:2px solid var(--leaf);outline-offset:3px}
+.ep:hover{transform:translateY(-4px)}
+.series.dark .ep{background:var(--forest-2)}
+.series.dark .ep:hover{box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.series.light .ep{background:#fff;border:1px solid var(--mint-2)}
+.series.light .ep:hover{box-shadow:0 20px 40px -24px rgba(14,59,44,.35)}
+.ep-img{display:block;aspect-ratio:2/3;overflow:hidden;background:#0a2a1f}
+.ep-img img{width:100%;height:100%;object-fit:cover;object-position:left center}
+.ep-body{display:flex;flex-direction:column;gap:6px;padding:14px 16px 18px;flex:1}
+.ep-no{font-size:12px;font-weight:700;letter-spacing:.08em}
+.series.dark .ep-no{color:var(--leaf)}
+.series.light .ep-no{color:var(--green)}
+.ep-title{font-weight:700;font-size:16px;line-height:1.3}
+.ep-msg{font-size:13.5px;line-height:1.5}
+.series.dark .ep-msg{color:#a9c7b6}
+.series.light .ep-msg{color:var(--ink-2)}
+
+/* reflection */
+.reflect{background:var(--green);color:#fff;text-align:center;padding-block:96px}
+.reflect .eyebrow{color:#d5f0e0}
+.reflect h2{font-size:clamp(34px,5vw,60px);font-weight:800;margin-top:16px;letter-spacing:-.03em}
+.reflect .pair{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
+.reflect .pair span{padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.14);font-weight:600}
+.reflect p.lead{margin-top:26px;font-size:19px;color:#e6f6ec}
+.reflect .hash{display:inline-block;margin-top:18px;font-weight:800;letter-spacing:.04em}
+
+/* ESG */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{font:500 14px var(--font);padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--green);color:var(--forest)}
+.chip.on{background:var(--forest);border-color:var(--forest);color:#fff}
+.cos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.co{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:6px;padding:20px;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:border-color .15s,transform .15s,box-shadow .15s}
+.co:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 16px 34px -24px rgba(14,59,44,.45)}
+.co:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.co-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.co-init{width:40px;height:40px;border-radius:10px;background:var(--mint);color:var(--forest);display:grid;place-items:center;font-weight:800;font-size:14px;flex:none}
+.co-ind{font-size:11.5px;font-weight:600;color:var(--green-2);background:var(--mint);padding:4px 10px;border-radius:999px;text-align:right}
+.co-name{font-weight:700;font-size:18px;color:var(--ink)}
+.co-meta{font-size:12.5px;color:var(--ink-3)}
+.co-desc{font-size:14px;color:var(--ink-2);line-height:1.5;margin-top:2px}
+.co-more{margin-top:auto;padding-top:12px;font-size:14px;font-weight:600;color:var(--green)}
+.count{font-size:14px;color:var(--ink-3);margin:-12px 0 20px}
+
+/* about */
+.about{background:var(--mint)}
+.about-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start}
+.about h2{font-size:clamp(32px,4vw,46px);color:var(--forest);margin-top:12px}
+.credits{margin:28px 0 0;padding:6px 22px;background:#fff;border-radius:var(--r);border:1px solid var(--mint-2)}
+.credits div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.credits div:last-child{border-bottom:0}
+.credits dt{color:var(--ink-2)}
+.credits dd{margin:0;font-weight:600;text-align:right}
+@media (max-width:820px){.about-in{grid-template-columns:minmax(0,1fr);gap:24px}}
+
+.foot{background:var(--forest);color:#bcd6c8}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:32px calc(32px + env(safe-area-inset-bottom,0px));font-size:14px}
+.foot .brand{color:#fff;font-size:20px}
+.foot a.back{color:#fff;text-decoration:none;font-weight:600}
+.foot a.back:hover{color:var(--leaf)}
+
+/* dialogs */
+.ov{position:fixed;inset:0;z-index:100;background:rgba(8,30,22,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:grid;place-items:center;
+  padding:calc(24px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.panel{position:relative;background:#fff;border-radius:20px;width:min(880px,100%);max-height:100%;overflow:auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.5)}
+.x{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--forest);cursor:pointer;display:grid;place-items:center;z-index:2;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+.x:hover{background:var(--mint)}
+.ep-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.ep-panel .pic{background:#0a2a1f;display:grid;place-items:center;min-height:100%}
+.ep-panel .pic img{width:100%;max-height:84vh;object-fit:contain}
+.ep-panel .txt{padding:44px 32px 32px}
+.ep-panel h3{font-size:28px;color:var(--forest);margin:8px 0 22px}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.said p{color:var(--ink-2);font-size:15.5px}
+.said p+p{margin-top:8px}
+.ep-panel .msg{margin-top:24px;padding:18px 20px;border-radius:12px;background:var(--mint)}
+.ep-panel .msg div p{font-weight:700;color:var(--forest);font-size:17px;line-height:1.4}
+.ep-nav{display:flex;justify-content:space-between;gap:10px;margin-top:26px}
+.ep-nav button{font:600 14px var(--font);background:none;border:1.5px solid var(--line);border-radius:999px;padding:9px 16px;cursor:pointer;color:var(--forest)}
+.ep-nav button:hover{border-color:var(--green)}
+@media (max-width:700px){.ep-panel{grid-template-columns:minmax(0,1fr)}.ep-panel .pic img{max-height:52vh}.ep-panel .txt{padding:24px 20px}}
+.co-panel .head{display:flex;gap:16px;align-items:center;padding:28px 64px 22px 28px;border-bottom:1px solid var(--line)}
+.co-panel .head .co-init{width:54px;height:54px;font-size:18px}
+.co-panel h3{font-size:26px;color:var(--forest)}
+.co-panel .sub{font-size:13.5px;color:var(--ink-3);margin-top:4px}
+.co-panel .body{padding:22px 28px 30px}
+.co-panel .ovw{color:var(--ink-2);font-size:15.5px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.init{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--mint)}
+.init:last-child{border-bottom:0}
+.init i{width:28px;height:28px;border-radius:8px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px}
+.init b{display:block;font-weight:700;margin-bottom:4px;font-size:15px}
+.init p{font-size:14.5px;color:var(--ink-2)}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.ptags span{font-size:12.5px;padding:5px 11px;border-radius:999px;background:var(--mint);color:var(--green-2);font-weight:500}
+@media (max-width:520px){.co-panel .head{padding:22px 60px 18px 18px}.co-panel .body{padding:18px}}
+body.ov-open{overflow:hidden}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Miraebiz</a>
+    <button class="menu" id="menuBtn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="links">
+      <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="links" id="links" aria-label="Miraebiz">
+      <a href="#statement">Overview</a>
+      <a href="#greenwashing">Greenwashing</a>
+      <a href="#no-filter">No Filter</a>
+      <a href="#reflection">Reflection</a>
+      <a href="#esg">ESG Best Practices</a>
+      <a href="#about">About</a>
+      <a class="out" href="../">CO2mmitment ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div>
+        <span class="pill"><i></i>A Miraebiz project · #StopGreenwashing</span>
+        <h1>Two <span>Perspectives</span></h1>
+        <p class="sub">A visual campaign exploring greenwashing through two contrasting perspectives. Two ways of seeing. One truth.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#greenwashing">Explore the series</a>
+          <a class="btn btn-ghost" href="#esg">ESG best practices</a>
+        </div>
+        <div class="byline"><span class="avatar">AP</span><span>Created by <b>Ayden J. Park</b></span></div>
+      </div>
+      <figure class="film">
+        <video controls playsinline preload="metadata" poster="media/video-poster.jpg" width="1280" height="720">
+          <source src="media/two-perspectives.mp4" type="video/mp4">
+        </video>
+        <figcaption class="film-cap"><b>Campaign film</b><span>1:57</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section statement" id="statement">
+    <div class="wrap">
+      <div class="statement-in">
+        <div>
+          <span class="eyebrow">Artist statement</span>
+          <h2>How do we recognize what is real?</h2>
+        </div>
+        <div class="prose">
+          <p>We often judge environmental responsibility through images before understanding reality.</p>
+          <p><strong>Greenwashing</strong> intentionally uses AI-generated, advertising-style visuals. <strong>No Filter</strong> presents unedited smartphone photographs that I personally captured during everyday moments, with only typography added.</p>
+          <p>This project isn't asking people to stop using AI. I intentionally used AI because greenwashing itself is an artificial construction. By contrast, the No Filter series documents the real world exactly as I experienced it.</p>
+          <p>It's asking people to question what they see.</p>
+          <span class="tag">#STOPGREENWASHING</span>
+        </div>
+      </div>
+      <div class="paths">
+        <a class="path dark" href="#greenwashing">
+          <span class="eyebrow">Perspective 01 · Created</span>
+          <h3>Greenwashing</h3>
+          <p>Greenwashing is not about protecting nature. It is about protecting perception.</p>
+          <span class="thumbs"><img src="media/gw-1.webp" alt="" loading="lazy"><img src="media/gw-2.webp" alt="" loading="lazy"><img src="media/gw-3.webp" alt="" loading="lazy"><img src="media/gw-4.webp" alt="" loading="lazy"><img src="media/gw-5.webp" alt="" loading="lazy"></span>
+          <span class="go">5 AI-generated posters →</span>
+        </a>
+        <a class="path" href="#no-filter">
+          <span class="eyebrow">Perspective 02 · Captured</span>
+          <h3>No Filter</h3>
+          <p>Nature doesn't need better advertising. It only needs to be seen.</p>
+          <span class="thumbs"><img src="media/nf-1.webp" alt="" loading="lazy"><img src="media/nf-2.webp" alt="" loading="lazy"><img src="media/nf-3.webp" alt="" loading="lazy"><img src="media/nf-4.webp" alt="" loading="lazy"><img src="media/nf-5.webp" alt="" loading="lazy"></span>
+          <span class="go">5 unedited photographs →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section series dark" id="greenwashing">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Perspective 01 · Created with AI</span>
+          <h2>Greenwashing</h2>
+          <p class="quote">Greenwashing is not about protecting nature. It is about protecting perception.</p>
+        </div>
+        <p>Every image in this series was intentionally created using AI. I wasn't trying to imitate nature. I was trying to imitate greenwashing, which is carefully designed to look trustworthy, beautiful and environmentally responsible.</p>
+      </div>
+      <div class="eps"><button class="ep" type="button" data-ep="gw-1" id="gw-ep01">
+          <span class="ep-img"><img src="media/gw-1.webp" width="933" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.01</span>
+            <span class="ep-title">Changing the color doesn&#x27;t change the truth.</span>
+            <span class="ep-msg">A greener image doesn&#x27;t always mean a greener future.</span>
+          </span>
+        </button><button class="ep" type="button" data-ep="gw-2" id="gw-ep02">
+          <span class="ep-img"><img src="media/gw-2.webp" width="1040" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.02</span>
+            <span class="ep-title">Covered. Not changed.</span>
+            <span class="ep-msg">If nothing changes underneath, nothing has really changed.</span>
+          </span>
+        </button><button class="ep" type="button" data-ep="gw-3" id="gw-ep03">
+          <span class="ep-img"><img src="media/gw-3.webp" width="932" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.03</span>
+            <span class="ep-title">The filter isn&#x27;t the future.</span>
+            <span class="ep-msg">A filter can change an image. It can&#x27;t change reality. The future needs action, not better filters.</span>
+          </span>
+        </button><button class="ep" type="button" data-ep="gw-4" id="gw-ep04">
+          <span class="ep-img"><img src="media/gw-4.webp" width="932" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.04</span>
+            <span class="ep-title">We care. About nature.</span>
+            <span class="ep-msg">Nature should never become just another marketing tool.</span>
+          </span>
+        </button><button class="ep" type="button" data-ep="gw-5" id="gw-ep05">
+          <span class="ep-img"><img src="media/gw-5.webp" width="933" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.05</span>
+            <span class="ep-title">Green is easy. Honesty is hard.</span>
+            <span class="ep-msg">Making something look green is easy. Doing something that truly helps the environment is much harder.</span>
+          </span>
+        </button></div>
+      <div class="series-note">
+        <div class="note"><b>Why AI</b>Because greenwashing itself is an artificial construction, I believed the images should be artificial too.</div>
+        <div class="note"><b>Not a shortcut</b>Using AI was part of the concept. The series explores how easily environmental responsibility can be replaced by appearance.</div>
+        <div class="note"><b>The point</b>The images are artificial. The message is real.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section series light" id="no-filter">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Perspective 02 · Captured on a smartphone</span>
+          <h2>No Filter</h2>
+          <p class="quote">Nature doesn't need better advertising. It only needs to be seen.</p>
+        </div>
+        <p>Every photograph in this series was personally captured by me using a smartphone. Nothing was added. Nothing was removed. The only change was the typography placed on top of each image.</p>
+      </div>
+      <div class="eps"><button class="ep" type="button" data-ep="nf-1" id="nf-ep01">
+          <span class="ep-img"><img src="media/nf-1.webp" width="989" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.01</span>
+            <span class="ep-title">Nature never needed one.</span>
+            <span class="ep-msg">Sometimes the best thing we can do is simply look.</span>
+          </span>
+        </button><button class="ep" type="button" data-ep="nf-2" id="nf-ep02">
+          <span class="ep-img"><img src="media/nf-2.webp" width="991" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.02</span>
+            <span class="ep-title">Paradise doesn&#x27;t need editing.</span>
+            <span class="ep-msg">Real beauty doesn&#x27;t need improvement.</span>
+          </span>
+        </button><button class="ep" type="button" data-ep="nf-3" id="nf-ep03">
+          <span class="ep-img"><img src="media/nf-3.webp" width="1050" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.03</span>
+            <span class="ep-title">Beauty doesn&#x27;t wait for perfect light.</span>
+            <span class="ep-msg">Sometimes ordinary moments are the most beautiful.</span>
+          </span>
+        </button><button class="ep" type="button" data-ep="nf-4" id="nf-ep04">
+          <span class="ep-img"><img src="media/nf-4.webp" width="933" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.04</span>
+            <span class="ep-title">Nothing here was directed.</span>
+            <span class="ep-msg">Nature already tells its own story. We only have to notice it.</span>
+          </span>
+        </button><button class="ep" type="button" data-ep="nf-5" id="nf-ep05">
+          <span class="ep-img"><img src="media/nf-5.webp" width="1050" height="1400" alt="" loading="lazy"></span>
+          <span class="ep-body">
+            <span class="ep-no">EP.05</span>
+            <span class="ep-title">The ocean never asked for a better color.</span>
+            <span class="ep-msg">Nature doesn&#x27;t need a filter. It needs our respect.</span>
+          </span>
+        </button></div>
+      <div class="series-note">
+        <div class="note"><b>The opposite view</b>After creating the Greenwashing series, I wanted to show the opposite perspective.</div>
+        <div class="note"><b>Observed, not created</b>Instead of creating nature, I simply observed it.</div>
+        <div class="note"><b>The point</b>Nature doesn't need to look better. It only needs to be protected.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reflect" id="reflection">
+    <div class="wrap">
+      <span class="eyebrow">Reflection</span>
+      <h2>Protect nature. Not its image.</h2>
+      <div class="pair"><span>One was created.</span><span>One was captured.</span><span>Both tell the same story.</span></div>
+      <p class="lead">Different images. One message.</p>
+      <span class="hash">#STOPGREENWASHING</span>
+    </div>
+  </section>
+
+  <section class="section" id="esg">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Beyond the image</span>
+          <h2>ESG Best Practices</h2>
+        </div>
+        <p>If greenwashing protects perception, these companies show what real commitment looks like. Select a company to read its ESG report.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter by industry"><button class="chip on" type="button" data-f="all" aria-pressed="true">All</button><button class="chip" type="button" data-f="mental" aria-pressed="false">Mental Health &amp; Well-being</button><button class="chip" type="button" data-f="accounting" aria-pressed="false">Accounting &amp; Tax</button><button class="chip" type="button" data-f="entertainment" aria-pressed="false">Entertainment</button><button class="chip" type="button" data-f="technology" aria-pressed="false">Technology</button><button class="chip" type="button" data-f="fashion" aria-pressed="false">Fashion &amp; Apparel</button><button class="chip" type="button" data-f="healthcare" aria-pressed="false">Healthcare</button><button class="chip" type="button" data-f="manufacturing" aria-pressed="false">Manufacturing &amp; Cooperative</button></div>
+      <p class="count" id="coCount" aria-live="polite">30 companies</p>
+      <div class="cos"><button class="co" type="button" data-id="mindmed" data-g="mental">
+      <span class="co-top"><span class="co-init" aria-hidden="true">M</span><span class="co-ind">Mental Health &amp; Well-being</span></span>
+      <span class="co-name">MindMed</span>
+      <span class="co-meta">Mental Health · Biotech · US</span>
+      <span class="co-desc">Psychedelic-inspired medicines for anxiety and depression — ethical AI clinical research.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="headspace" data-g="mental">
+      <span class="co-top"><span class="co-init" aria-hidden="true">H</span><span class="co-ind">Mental Health &amp; Well-being</span></span>
+      <span class="co-name">Headspace Health</span>
+      <span class="co-meta">Digital Wellness · US</span>
+      <span class="co-desc">Mindfulness + therapy platform — DEIB-centered, free access for educators worldwide.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="lyra" data-g="mental">
+      <span class="co-top"><span class="co-init" aria-hidden="true">L</span><span class="co-ind">Mental Health &amp; Well-being</span></span>
+      <span class="co-name">Lyra Health</span>
+      <span class="co-meta">HR Mental Health Benefits · US</span>
+      <span class="co-desc">AI-matched care for 20M+ employees — 9 out of 10 members show clinical improvement.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="betterhelp" data-g="mental">
+      <span class="co-top"><span class="co-init" aria-hidden="true">B</span><span class="co-ind">Mental Health &amp; Well-being</span></span>
+      <span class="co-name">BetterHelp</span>
+      <span class="co-meta">Online Therapy · US</span>
+      <span class="co-desc">Affordable therapy for all — free access for veterans, students, and disaster victims.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="patagonia_mh" data-g="mental">
+      <span class="co-top"><span class="co-init" aria-hidden="true">P</span><span class="co-ind">Mental Health &amp; Well-being</span></span>
+      <span class="co-name">Patagonia</span>
+      <span class="co-meta">Outdoor Apparel · US</span>
+      <span class="co-desc">Regenerative agriculture, Worn Wear circular economy, and employee wellbeing culture.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="chunji" data-g="accounting">
+      <span class="co-top"><span class="co-init" aria-hidden="true">C</span><span class="co-ind">Accounting &amp; Tax</span></span>
+      <span class="co-name">Chunji Tax Corp.</span>
+      <span class="co-meta">Tax · Korea SME</span>
+      <span class="co-desc">First cloud tax office in Korea — gratitude journal culture and TBVM transparency model.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="hrblock" data-g="accounting">
+      <span class="co-top"><span class="co-init" aria-hidden="true">H</span><span class="co-ind">Accounting &amp; Tax</span></span>
+      <span class="co-name">H&amp;R Block</span>
+      <span class="co-meta">Tax Services · US</span>
+      <span class="co-desc">Spruce no-fee banking for unbanked communities and Make Every Block Better initiative.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="bdo" data-g="accounting">
+      <span class="co-top"><span class="co-init" aria-hidden="true">B</span><span class="co-ind">Accounting &amp; Tax</span></span>
+      <span class="co-name">BDO</span>
+      <span class="co-meta">Accounting · 160+ Countries</span>
+      <span class="co-desc">Climate &amp; Sustainability Center of Excellence — Scope 1-2-3 tracking globally.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="rsm" data-g="accounting">
+      <span class="co-top"><span class="co-init" aria-hidden="true">R</span><span class="co-ind">Accounting &amp; Tax</span></span>
+      <span class="co-name">RSM</span>
+      <span class="co-meta">Accounting · 120+ Countries</span>
+      <span class="co-desc">Safer Dance anti-harassment initiative and Jack in the Box&#x27;s first SASB-aligned ESG report.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="deloitte" data-g="accounting">
+      <span class="co-top"><span class="co-init" aria-hidden="true">D</span><span class="co-ind">Accounting &amp; Tax</span></span>
+      <span class="co-name">Deloitte</span>
+      <span class="co-meta">Big Four · 150+ Countries</span>
+      <span class="co-desc">ESG Firm of the Year 2024 — green tax incentives and integrated ESG-tax disclosure.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="pwc" data-g="accounting">
+      <span class="co-top"><span class="co-init" aria-hidden="true">P</span><span class="co-ind">Accounting &amp; Tax</span></span>
+      <span class="co-name">PwC</span>
+      <span class="co-meta">Big Four · 150+ Countries</span>
+      <span class="co-desc">ESG embedded across all services — Scope 3 management and supplier decarbonization.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="lego" data-g="entertainment">
+      <span class="co-top"><span class="co-init" aria-hidden="true">L</span><span class="co-ind">Entertainment</span></span>
+      <span class="co-name">LEGO</span>
+      <span class="co-meta">Toys · Denmark</span>
+      <span class="co-desc">Braille Bricks and disability-inclusive minifigures — play as a force for social inclusion.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="mattel" data-g="entertainment">
+      <span class="co-top"><span class="co-init" aria-hidden="true">M</span><span class="co-ind">Entertainment</span></span>
+      <span class="co-name">Mattel</span>
+      <span class="co-meta">Toys · US</span>
+      <span class="co-desc">Little People Inspiring Women and Bruno for neurodiversity — purposeful play for change.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="ea" data-g="entertainment">
+      <span class="co-top"><span class="co-init" aria-hidden="true">EA</span><span class="co-ind">Entertainment</span></span>
+      <span class="co-name">Electronic Arts</span>
+      <span class="co-meta">Video Games · US</span>
+      <span class="co-desc">The Sims 4 gender inclusion and Battlefield V accessibility for hearing-impaired players.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="nintendo" data-g="entertainment">
+      <span class="co-top"><span class="co-init" aria-hidden="true">N</span><span class="co-ind">Entertainment</span></span>
+      <span class="co-name">Nintendo</span>
+      <span class="co-meta">Video Games · Japan</span>
+      <span class="co-desc">Adaptive Joy-Con controls and Ring Fit Adventure — gaming for accessibility and wellbeing.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="sega" data-g="entertainment">
+      <span class="co-top"><span class="co-init" aria-hidden="true">S</span><span class="co-ind">Entertainment</span></span>
+      <span class="co-name">SEGA</span>
+      <span class="co-meta">Video Games · Japan</span>
+      <span class="co-desc">Yakuza as cultural preservation and Persona 5 driving teen mental health awareness.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="roblox" data-g="entertainment">
+      <span class="co-top"><span class="co-init" aria-hidden="true">Rb</span><span class="co-ind">Entertainment</span></span>
+      <span class="co-name">Roblox</span>
+      <span class="co-meta">Gaming Platform · US</span>
+      <span class="co-desc">AI safety blocking 36M threats/day and education reaching 21M students in 180 countries.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="amazon" data-g="technology">
+      <span class="co-top"><span class="co-init" aria-hidden="true">A</span><span class="co-ind">Technology</span></span>
+      <span class="co-name">Amazon</span>
+      <span class="co-meta">E-commerce · US</span>
+      <span class="co-desc">Co-founded The Climate Pledge (net-zero 2040) — 9,000+ Rivian EVs, 90% renewable energy.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="apple" data-g="technology">
+      <span class="co-top"><span class="co-init" aria-hidden="true">Ap</span><span class="co-ind">Technology</span></span>
+      <span class="co-name">Apple</span>
+      <span class="co-meta">Consumer Electronics · US</span>
+      <span class="co-desc">Carbon neutral entire value chain by 2030 — Apple Watch Series 9 first carbon-neutral product.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="fairphone" data-g="technology">
+      <span class="co-top"><span class="co-init" aria-hidden="true">F</span><span class="co-ind">Technology</span></span>
+      <span class="co-name">Fairphone</span>
+      <span class="co-meta">Smartphones · Netherlands</span>
+      <span class="co-desc">Modular design extends lifespan to 4.5 years — Fairtrade gold, 40% recycled plastics.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="adobe" data-g="technology">
+      <span class="co-top"><span class="co-init" aria-hidden="true">Ad</span><span class="co-ind">Technology</span></span>
+      <span class="co-name">Adobe</span>
+      <span class="co-meta">Software · US</span>
+      <span class="co-desc">Acrobat Sign saves 23.4M lbs CO₂ per 1M daily pages — Substance 3D cuts shoot emissions 98%.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="docusign" data-g="technology">
+      <span class="co-top"><span class="co-init" aria-hidden="true">D</span><span class="co-ind">Technology</span></span>
+      <span class="co-name">DocuSign</span>
+      <span class="co-meta">E-Signature · US</span>
+      <span class="co-desc">38B+ sheets of paper replaced — 4M trees preserved, DocuSign for Forests™ initiative.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="google" data-g="technology">
+      <span class="co-top"><span class="co-init" aria-hidden="true">Go</span><span class="co-ind">Technology</span></span>
+      <span class="co-name">Google</span>
+      <span class="co-meta">Internet Services · US</span>
+      <span class="co-desc">AI eco-routing prevented 1.2M metric tons CO₂ — Active Assist optimizes cloud energy use.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="ecosia" data-g="technology">
+      <span class="co-top"><span class="co-init" aria-hidden="true">E</span><span class="co-ind">Technology</span></span>
+      <span class="co-name">Ecosia</span>
+      <span class="co-meta">Search Engine · Germany</span>
+      <span class="co-desc">100% profits to climate action — 150M+ trees planted, carbon-negative search engine.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="microsoft" data-g="technology">
+      <span class="co-top"><span class="co-init" aria-hidden="true">Ms</span><span class="co-ind">Technology</span></span>
+      <span class="co-name">Microsoft</span>
+      <span class="co-meta">Software &amp; Cloud · US</span>
+      <span class="co-desc">Philanthropies bridges digital divide — carbon negative, water positive by 2030.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="goodonyou" data-g="fashion">
+      <span class="co-top"><span class="co-init" aria-hidden="true">G</span><span class="co-ind">Fashion &amp; Apparel</span></span>
+      <span class="co-name">Good On You</span>
+      <span class="co-meta">Fashion Tech · Australia</span>
+      <span class="co-desc">Rates 3,000+ brands on ethics — 85% of users changed buying habits, 500+ brands improved.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="patagonia_f" data-g="fashion">
+      <span class="co-top"><span class="co-init" aria-hidden="true">P</span><span class="co-ind">Fashion &amp; Apparel</span></span>
+      <span class="co-name">Patagonia</span>
+      <span class="co-meta">Outdoor Apparel · US</span>
+      <span class="co-desc">&quot;Don&#x27;t Buy This Jacket&quot; — 70% recycled materials, 100% renewable energy, 1% for the Planet.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="prana" data-g="fashion">
+      <span class="co-top"><span class="co-init" aria-hidden="true">Pr</span><span class="co-ind">Fashion &amp; Apparel</span></span>
+      <span class="co-name">Prana</span>
+      <span class="co-meta">Lifestyle Apparel · US</span>
+      <span class="co-desc">95% sustainable materials — Responsible Packaging removed 10M+ polybags, FLA certified.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="novonordisk" data-g="healthcare">
+      <span class="co-top"><span class="co-init" aria-hidden="true">N</span><span class="co-ind">Healthcare</span></span>
+      <span class="co-name">Novo Nordisk</span>
+      <span class="co-meta">Pharmaceuticals · Denmark</span>
+      <span class="co-desc">Affordable insulin for low-income countries — Cities Changing Diabetes, 100+ local partners.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button><button class="co" type="button" data-id="mondragon" data-g="manufacturing">
+      <span class="co-top"><span class="co-init" aria-hidden="true">Mo</span><span class="co-ind">Manufacturing &amp; Cooperative</span></span>
+      <span class="co-name">Mondragon</span>
+      <span class="co-meta">Worker Cooperative · Spain</span>
+      <span class="co-desc">70,000 worker-owners, 6:1 pay ratio — democratic decision-making, no layoffs during crises.</span>
+      <span class="co-more">Read report <span aria-hidden="true">→</span></span>
+    </button></div>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="wrap about-in">
+      <div>
+        <span class="eyebrow">Behind the project</span>
+        <h2>Why did I make this?</h2>
+      </div>
+      <div>
+        <div class="prose">
+          <p>I grew up surrounded by photography.</p>
+          <p>But recently I realized that creating beautiful images has become easier than understanding what they actually mean.</p>
+          <p>That question became this project.</p>
+        </div>
+        <dl class="credits">
+          <div><dt>Photography</dt><dd>Ayden J. Park</dd></div>
+          <div><dt>AI concept development</dt><dd>Ayden J. Park</dd></div>
+          <div><dt>Typography</dt><dd>Ayden J. Park</dd></div>
+          <div><dt>Layout</dt><dd>Ayden J. Park</dd></div>
+          <div><dt>Video</dt><dd>Ayden J. Park</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="#top">Miraebiz</a>
+    <span>© 2026 Miraebiz · Two Perspectives by Ayden J. Park</span>
+    <a class="back" href="../">Visit CO2mmitment →</a>
+  </div>
+</footer>
+
+<div class="ov" id="ovEp" role="dialog" aria-modal="true" aria-labelledby="epTitle" hidden>
+  <div class="panel">
+    <button class="x" type="button" data-close aria-label="Close"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <div class="ep-panel">
+      <div class="pic"><img id="epImg" alt=""></div>
+      <div class="txt">
+        <span class="eyebrow" id="epSeries"></span>
+        <h3 id="epTitle"></h3>
+        <p class="lbl">What I wanted to say</p>
+        <div class="said" id="epSaid"></div>
+        <div class="msg"><p class="lbl">Message</p><div id="epMsg"></div></div>
+        <div class="ep-nav"><button type="button" id="epPrev">← Previous</button><button type="button" id="epNext">Next →</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ov" id="ovCo" role="dialog" aria-modal="true" aria-labelledby="coTitle" hidden>
+  <div class="panel co-panel">
+    <button class="x" type="button" data-close aria-label="Close"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg></button>
+    <div class="head"><span class="co-init" id="coInit"></span><div><h3 id="coTitle"></h3><p class="sub" id="coSub"></p></div></div>
+    <div class="body"><p class="ovw" id="coOv"></p><p class="lbl">Key ESG initiatives</p><div id="coPts"></div><div class="ptags" id="coTags"></div></div>
+  </div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const EPS = {"gw-1": {"img": "media/gw-1.webp", "series": "Greenwashing", "no": "EP.01", "title": "Changing the color doesn't change the truth.", "said": ["A filter can change the way something looks.", "It can't change the truth."], "msg": ["A greener image doesn't always mean a greener future."]}, "gw-2": {"img": "media/gw-2.webp", "series": "Greenwashing", "no": "EP.02", "title": "Covered. Not changed.", "said": ["Some problems are simply covered up instead of solved.", "I wanted this image to show the difference between hiding something and fixing it."], "msg": ["If nothing changes underneath, nothing has really changed."]}, "gw-3": {"img": "media/gw-3.webp", "series": "Greenwashing", "no": "EP.03", "title": "The filter isn't the future.", "said": ["Today, almost anything can look better with a filter.", "The environment can too.", "But making nature look healthier doesn't actually make it healthier.", "I wanted this image to remind people that the future depends on what we do, not on how things look."], "msg": ["A filter can change an image.", "It can't change reality.", "The future needs action, not better filters."]}, "gw-4": {"img": "media/gw-4.webp", "series": "Greenwashing", "no": "EP.04", "title": "We care. About nature.", "said": ["Today, caring about the environment has become part of advertising.", "Sometimes it feels like companies are selling the idea of nature instead of protecting it."], "msg": ["Nature should never become just another marketing tool."]}, "gw-5": {"img": "media/gw-5.webp", "series": "Greenwashing", "no": "EP.05", "title": "Green is easy. Honesty is hard.", "said": ["People often believe something is good for the environment just because it looks green.", "I wanted to show how easy it is to create that impression, even when nothing really changes."], "msg": ["Making something look green is easy.", "Doing something that truly helps the environment is much harder."]}, "nf-1": {"img": "media/nf-1.webp", "series": "No Filter", "no": "EP.01", "title": "Nature never needed one.", "said": ["This was one of those moments that already felt complete before I took the photo.", "I didn't need to change anything because nature had already done all the work."], "msg": ["Sometimes the best thing we can do is simply look."]}, "nf-2": {"img": "media/nf-2.webp", "series": "No Filter", "no": "EP.02", "title": "Paradise doesn't need editing.", "said": ["Beautiful places don't become beautiful because of editing.", "I wanted to keep this photo exactly the way I saw it."], "msg": ["Real beauty doesn't need improvement."]}, "nf-3": {"img": "media/nf-3.webp", "series": "No Filter", "no": "EP.03", "title": "Beauty doesn't wait for perfect light.", "said": ["I took this photo because I liked the moment, not because everything was perfect.", "Nature doesn't wait for perfect weather or perfect lighting."], "msg": ["Sometimes ordinary moments are the most beautiful."]}, "nf-4": {"img": "media/nf-4.webp", "series": "No Filter", "no": "EP.04", "title": "Nothing here was directed.", "said": ["Nobody arranged this scene.", "Nobody moved the trees or controlled the light.", "Everything happened naturally, and I was simply there to capture it."], "msg": ["Nature already tells its own story.", "We only have to notice it."]}, "nf-5": {"img": "media/nf-5.webp", "series": "No Filter", "no": "EP.05", "title": "The ocean never asked for a better color.", "said": ["When I looked out the airplane window, I realized the ocean didn't need a filter to look beautiful.", "Sometimes we spend too much time changing images instead of appreciating them."], "msg": ["Nature doesn't need a filter.", "It needs our respect."]}};
+const ESG = {"mindmed": {"i": "M", "n": "MindMed", "s": "Mental Health & Biotech · US · NASDAQ Listed 2020", "o": "Mind Medicine Inc. is a clinical-stage biopharmaceutical company developing psychedelic-inspired medicines for mental disorders including anxiety, depression, and addiction. Founded in 2019 and listed on NASDAQ in 2020, MindMed combines novel drug development with digital health tools to advance equitable access to psychiatric care.", "p": [{"t": "Advancing Innovative Mental Health Therapies", "b": "MM-120, an LSD-derived therapy for Generalized Anxiety Disorder, showed promising Phase 2b trial results. MindMed also develops MM402 for autism spectrum disorder, addressing conditions with limited existing treatments and reducing stigma around alternative therapies."}, {"t": "Integrating Digital Tools and AI", "b": "Partnered with Sphere Health to collect multimodal patient data capturing anxiety and depression biomarkers while prioritizing privacy. Acquired HealthMode, specializing in AI-enabled measurement technologies to improve patient monitoring and clinical study efficiency."}, {"t": "Ethical Integrity and Data Privacy", "b": "Maintains transparency with patients, regulators, and investors on clinical progress and risks. Upholds strict data governance, informed consent, and patient rights — reinforcing trust across all research initiatives."}], "g": ["Generalized Anxiety Disorder", "Psychedelic Medicine", "Digital Health", "Clinical Research", "Data Privacy"]}, "headspace": {"i": "H", "n": "Headspace Health", "s": "Digital Wellness · US · Founded 2010", "o": "Formed by merging Headspace (mindfulness) and Ginger (telehealth), Headspace Health offers a full spectrum of mental healthcare — from self-guided meditation to therapy and psychiatry. The company uses a stepped-care model, making support accessible regardless of need or income.", "p": [{"t": "Advancing DEIB (Diversity, Equity, Inclusion & Belonging)", "b": "Recognized as \"Best Place to Work for Disability Inclusion\" by the Disability Equality Index in 2024. Acquired the Shine app — a mental wellness platform founded by women of color, specifically addressing stressors faced by the BIPOC community."}, {"t": "Expanding Access to Mental Health Resources", "b": "Provides free access to educators including teachers and school administrators in select countries. Partners with global nonprofits to deliver resources to underserved communities through its spectrum-of-care model."}, {"t": "Supporting Employee Well-being", "b": "Introduced \"MIND Days\" for full disconnection and rest. Implements no-meeting Fridays to prevent burnout. Maintains Employee Resource Groups (ERGs) and a Purpose Advisory Committee to foster psychological safety and inclusion."}], "g": ["DEIB", "Mindfulness", "Employee Wellbeing", "BIPOC Community", "Global Access"]}, "lyra": {"i": "L", "n": "Lyra Health", "s": "HR Mental Health Benefits · US · Founded 2015", "o": "Founded by David Ebersman (former CFO of Facebook), Lyra Health provides mental health benefits to 20M+ employees across 300+ companies. The platform combines AI matching, high-quality providers, and evidence-based care — reporting 26% annual reduction in medical claims for partnered employers.", "p": [{"t": "Culturally Responsive Mental Health Care", "b": "Trains providers to understand clients' cultural backgrounds. Runs fellowship programs for clinicians from marginalized communities. 42% of employees are people of color; services offered in multiple languages through a diverse provider network."}, {"t": "Measurable Clinical and Economic Impact", "b": "9 out of 10 members show clinical improvement. Third-party research shows 26% annual reduction in medical claims. Every $1 invested in Lyra generates approximately $3 in savings for employers."}, {"t": "Expanding Accessibility and Speed of Care", "b": "Minimizes wait times from first request to first appointment. Built one of the largest networks of child and adolescent mental health specialists. Provides no-cost or low-cost services to over 15 million people worldwide."}], "g": ["AI Matching", "Cultural Responsiveness", "26% Medical Cost Reduction", "20M+ Employees", "Child Mental Health"]}, "betterhelp": {"i": "B", "n": "BetterHelp", "s": "Online Therapy · US · Founded 2013 · Acquired by Teladoc 2015", "o": "BetterHelp connects users with 30,000+ licensed therapists via video, phone, chat, and messaging. It uses a matching algorithm and affordable pricing to remove traditional barriers to therapy — and has helped millions of people access mental healthcare through its Social Impact Program.", "p": [{"t": "Increasing Access to Affordable Mental Health Care", "b": "Social Impact Program provides financial aid and discounted plans for low-income users, students, veterans, the unemployed, and disabled individuals. In crisis or natural disaster situations, BetterHelp donates free months of therapy. Partners with 100+ nonprofits for subsidized access."}, {"t": "Reducing Stigma Through Public Outreach", "b": "Runs \"Therapy for All\" campaign with celebrities, athletes, and public figures to normalize mental healthcare. Strategically targets youth, men, and international audiences — communities with heightened stigma — promoting seeking help as a sign of strength."}, {"t": "Transparency and Clinical Outcomes", "b": "72% of clients report reduced symptoms within 12 weeks. 62% achieved symptom remission. 82% said they would recommend their therapist. These patient-reported outcomes demonstrate accountability and evidence-based practice."}], "g": ["72% Symptom Reduction", "Social Impact Program", "100+ Nonprofits", "Stigma Reduction", "30,000+ Therapists"]}, "patagonia_mh": {"i": "P", "n": "Patagonia", "s": "Outdoor Apparel · US · Founded 1973 by Yvon Chouinard", "o": "Patagonia is one of the most environmentally and socially responsible fashion brands in the world. The company reinvests profits into climate action, conservation, and grassroots activism — proving that business success and environmental responsibility can and must coexist.", "p": [{"t": "Advancing Regenerative Agriculture", "b": "Founded the Regenerative Organic Alliance and developed Regenerative Organic Certified Programs benefiting 2,000+ farmers. Programs shift from fossil-fuel-intensive farming to organic practices, rebuilding soil health and drawing carbon from the atmosphere. First certified products launched Spring 2022."}, {"t": "Promoting Circular Economy via Worn Wear", "b": "The Worn Wear program promotes repair, reuse, and resale. Offers DIY repair guides, mobile repair stations, in-store and lifetime repairs. Buys back second-hand clothes and resells via the Worn Wear online store. Damaged items are recycled into the ReCrafted Collection."}, {"t": "Prioritizing Employee Well-being", "b": "Provides generous health benefits including free therapy sessions and wellness stipends. Flexible working hours, inclusive culture, \"Let My People Go Surfing\" philosophy, and paid wellness time strengthen employee emotional well-being and reduce stress."}], "g": ["Regenerative Agriculture", "Worn Wear", "Circular Economy", "Carbon Capture", "Employee Wellbeing"]}, "chunji": {"i": "C", "n": "Chunji Tax Corporation", "s": "Tax & Accounting · Korea · Founded 1996 · ~150 Employees", "o": "Established in 1996, Chunji Tax Corporation is a Korean SME with ~150 employees and 18 branches nationwide. Recognized as a model for how small companies can lead in ESG management through transparency, cloud innovation, and a unique culture of gratitude.", "p": [{"t": "TBVM — Gratitude-Based Disclosure Management", "b": "Implemented TBVM (Audit-Based Disclosure Management) that goes beyond financial reporting to transparently quantify employee happiness, customer satisfaction, and social value. Achieved the highest score in the social category of ESG evaluations."}, {"t": "Organizational Culture Centered on Gratitude", "b": "All employees write daily gratitude journals shared on the company intranet. This culture fosters positive thinking, mutual respect, and community — directly improving service quality and creating a virtuous cycle of customer trust."}, {"t": "Cloud Smart Office Innovation", "b": "First tax firm in Korea to launch a cloud-based \"Tax OS\" smart office, winning an Excellence Award at the national Smart Work Best Practices Competition. Enables real-time data sharing, hot-desking, cloud printing, and flexible remote work."}], "g": ["TBVM Transparency", "Gratitude Culture", "Cloud Smart Office", "Korean SME", "Social Value Disclosure"]}, "hrblock": {"i": "H", "n": "H&R Block", "s": "Tax Services · US · Founded 1955 · ~12,000 Locations Worldwide", "o": "Founded in 1955 in Kansas City, H&R Block now operates ~12,000 locations worldwide. The company provides comprehensive tax and financial services while pioneering financial inclusion — proving that a tax services firm can meaningfully advance ESG through community investment and fintech innovation.", "p": [{"t": "Make Every Block Better (MEBB) Initiative", "b": "Rather than simply donating funds, H&R Block partners with residents, nonprofits, and small businesses to revitalize neighborhoods — improving public spaces, mentoring local entrepreneurs, and offering free tax and financial education. Creates lasting social value through hands-on engagement."}, {"t": "Spruce — Financial Inclusion Platform", "b": "Launched in 2022, Spruce is a no-fee mobile banking platform for unbanked and underserved populations. Offers free spending account, high-yield savings with goal tracking, early paycheck access (up to 2 days early), budgeting insights, and automatic savings features."}], "g": ["Spruce Banking App", "Make Every Block Better", "Financial Inclusion", "Unbanked Communities", "Community Revitalization"]}, "bdo": {"i": "B", "n": "BDO", "s": "Accounting & Advisory · Global · Founded 1963 · 160+ Countries", "o": "BDO is a global accounting and advisory network with 110,000+ professionals in 160+ countries. Named after founders Binder (UK), Dijker (Netherlands), and Otte (Germany), BDO embeds ESG leadership across its global operations — both advising clients and applying the same standards internally.", "p": [{"t": "Climate & Sustainability Center of Excellence", "b": "Created a global center that advises clients and applies the same climate-risk and sustainability reporting tools internally. Addresses both physical risks (extreme weather, sea-level rise) and transition pressures (regulatory changes, market shifts) — demonstrating ESG leadership beyond standard CSR."}, {"t": "Global Carbon Footprint Program", "b": "Network-wide emissions tracking and reduction plan across 160+ countries. Tracks Scope 1, 2, and selected Scope 3 emissions using standardized methodology — collecting activity data, applying conversion factors, and using a global carbon data management platform to centralize and monitor emissions over time."}], "g": ["Scope 1-2-3 Tracking", "Climate Risk", "160+ Countries", "Carbon Reduction", "Sustainability Advisory"]}, "rsm": {"i": "R", "n": "RSM", "s": "Accounting & Consulting · Global · 120+ Countries · 65,000+ Professionals", "o": "RSM International is a global network of independent accounting and consulting firms headquartered in London, with 65,000+ professionals across 900+ offices in 120+ countries. RSM uniquely demonstrates ESG through direct social impact projects and by embedding sustainability into client strategy.", "p": [{"t": "Safer Dance — Risk Management & Social Responsibility", "b": "Partnered with nonprofit Subtle Speaks to launch the Safer Dance initiative, preventing sexual harassment in nightlife and hospitality venues. Assessed governance structures, reporting systems, and staff training in UK clubs — creating frameworks to monitor progress and build safer, more inclusive social spaces."}, {"t": "Jack in the Box — ESG Strategy Support", "b": "Guided the American restaurant chain Jack in the Box through its ESG journey. Conducted ESG Rapid Assessment, facilitated stakeholder interviews, performed materiality analysis, and supported creation of the company's first ESG report aligned with SASB standards and TCFD recommendations."}], "g": ["Safer Dance Initiative", "Jack in the Box ESG", "SASB Standards", "TCFD", "Social Responsibility"]}, "deloitte": {"i": "D", "n": "Deloitte", "s": "Big Four · Global · 150+ Countries · 450,000+ Professionals", "o": "Deloitte is one of the Big Four professional services firms and the world's largest professional services network by revenue. It has pioneered the integration of ESG into tax and business strategy — earning recognition as ESG Firm of the Year 2024 for its leadership in sustainable tax advisory.", "p": [{"t": "ESG–Tax Integration and Risk Governance", "b": "Pioneer in linking tax strategy with ESG goals. Advises clients on green tax incentives including renewable energy credits and carbon reduction deductions. Embeds tax governance into broader ESG reporting — aligning tax policies with sustainability to reduce emissions and increase corporate transparency."}, {"t": "Transparent ESG Reporting and Global Recognition", "b": "Supported organizations in combining tax and ESG disclosures, ensuring compliance with SASB standards and international tax rules including OECD BEPS and global minimum tax. Awarded \"ESG Firm of the Year\" 2024 by the International Tax Review."}], "g": ["ESG Firm of the Year 2024", "Green Tax Incentives", "OECD BEPS", "Global Minimum Tax", "SASB Compliance"]}, "pwc": {"i": "P", "n": "PwC", "s": "Big Four · Global · 150+ Countries · PricewaterhouseCoopers", "o": "PwC is one of the Big Four professional services firms coordinated from London. PwC uniquely integrates ESG across all service lines — tax, audit, consulting, and risk advisory — treating sustainability as a core business strategy embedded throughout the firm rather than a separate compliance function.", "p": [{"t": "ESG Reporting & Transformation — Workday Case", "b": "Collaborated with Workday to strengthen its ESG framework. Conducted materiality assessments and gap analysis, created a strategic roadmap for CSRD and SEC climate disclosure compliance, and focused on governance transparency and ESG-aligned business transformation."}, {"t": "ESG in Value Chains & Supply Chain Decarbonization", "b": "Supports clients in decarbonizing value chains through ESG playbooks and supply-chain engagement models. Helped design \"Supplier Playbooks\" educating partners on low-carbon operations. Specializes in Scope 3 Emissions Management using data-driven frameworks."}, {"t": "ESG/Sustainability Services Integration", "b": "Combines sustainability strategy, ESG reporting & assurance, sustainability tax, decarbonization, and climate risk modeling into all advisory offerings. ESG is embedded across tax, audit, consulting, and risk — not treated as a separate or secondary service."}], "g": ["Scope 3 Emissions", "Supplier Playbooks", "CSRD Compliance", "Workday Partnership", "Climate Risk Modeling"]}, "lego": {"i": "L", "n": "LEGO", "s": "Toys & Play · Denmark · Founded 1932 · ESG since 2015", "o": "Founded in 1932 under the philosophy \"Only the best is good enough,\" LEGO began its formal ESG commitment in 2015. The company has evolved from toy manufacturer to a force for educational and inclusive value — pioneering products that empower children with disabilities and promote social representation.", "p": [{"t": "LEGO Braille Bricks — Inclusive Learning", "b": "Developed Braille Bricks integrating Braille characters, letters, numbers, and symbols into LEGO bricks — giving visually impaired children the joy of play alongside their peers. Fully compatible with traditional LEGO sets. Opens new opportunities for both play and Braille literacy, priced at $89.99."}, {"t": "Toy Like Me — Disability Representation", "b": "Responding to 20,000+ petition signatures, LEGO unveiled its first wheelchair minifigure at the 2016 International Toy Fair. Has since expanded to characters with hearing aids, prosthetics, and limb differences. In December 2024, introduced characters featuring the Hidden Disabilities Sunflower Lanyard for non-visible conditions like autism."}], "g": ["Braille Bricks", "Wheelchair Minifigure", "Disability Inclusion", "Hidden Disabilities", "Sustainable Materials"]}, "mattel": {"i": "M", "n": "Mattel", "s": "Toys · US · Barbie · Hot Wheels · Fisher-Price · Thomas & Friends", "o": "Mattel is a global toy company committed to integrating ESG into its business practices. Using its iconic brands as vehicles for social change, Mattel pursues sustainable design and responsible production while making diversity and inclusion core values — reaching millions of children worldwide.", "p": [{"t": "Empowering Women — Little People Inspiring Women", "b": "The \"Little People Inspiring Women Figure Set\" introduces young girls to successful female role models across fields, dismantling gender stereotypes from an early age. In 2022, 57% of Mattel's global non-manufacturing workforce and 50% of managerial positions were held by women. Recognized by Forbes as World's Best Employer for Women."}, {"t": "Promoting Disability Inclusion — Bruno", "b": "The Thomas & Friends character Bruno has a neurodevelopmental disability — the first such representation in the franchise. Research shows children with autism who see similar characters report a 30% increase in self-esteem and are 25% more likely to participate in social activities with peers (University of California)."}], "g": ["Inspiring Women Set", "Bruno Neurodiversity", "57% Female Workforce", "Forbes Recognition", "Purposeful Play"]}, "ea": {"i": "EA", "n": "Electronic Arts", "s": "Video Games · US · Founded 1982 · FIFA · The Sims · Battlefield", "o": "Electronic Arts (EA) is a global video game company advancing ESG through game design. By building accessibility features and gender-inclusive mechanics into flagship titles, EA demonstrates how entertainment software can drive meaningful social change at scale — reaching hundreds of millions of players worldwide.", "p": [{"t": "Enhancing Accessibility for Gamers with Disabilities", "b": "Battlefield V includes subtitles and visual indicators for hearing-impaired players. Madden NFL offers voice recognition for visually impaired players. These features resulted in 20% more players with hearing impairments reporting greater satisfaction. EA plans to continue strengthening accessibility standards by 2025."}, {"t": "Promoting Gender Equality — The Sims 4", "b": "The Sims 4 allows full customization of gender identity, sexual orientation, pronouns (including non-binary), and gender expression. Clothing and hairstyles are not restricted by gender norms. About 75% of LGBTQ+ players reported gaining confidence through the game's freedom of gender expression."}], "g": ["Disability Accessibility", "The Sims 4", "LGBTQ+ Inclusion", "Battlefield V", "Gender Expression"]}, "nintendo": {"i": "N", "n": "Nintendo", "s": "Video Games · Japan · Founded 1889 · Switch · Mario · Zelda · Pokémon", "o": "Founded in 1889 in Kyoto as a playing card company, Nintendo has evolved into a global gaming pioneer. With a philosophy of \"putting smiles on people's faces,\" Nintendo consistently pushes boundaries of accessibility, inclusion, and physical well-being through innovative hardware and game design.", "p": [{"t": "Promoting Gaming Accessibility", "b": "The Nintendo Switch enables button remapping, sensitivity adjustment, and flexible input for players with motor impairments. Joy-Con controllers can be used one-handed, mounted on wheelchairs, or with adaptive devices. Motion controls allow gesture-based gameplay, reducing need for complex button combinations. Over 35% of physically disabled gamers struggle with traditional layouts — Nintendo's design removes these barriers."}, {"t": "Assist Mode — Cognitive Accessibility", "b": "Assist Mode in Super Mario Odyssey and Kirby and the Forgotten Land offers reduced game speed, automatic platforming assistance, navigation guidance, and increased character durability — supporting players with cognitive disabilities, young children, and inexperienced gamers. Led to a 27% increase in completion rates among casual and disabled gamers."}, {"t": "Encouraging Physical Activity via Gaming", "b": "Ring Fit Adventure uses the Ring-Con controller to turn exercise into an RPG — players averaged 35 minutes of exercise per session, resulting in a 15% increase in physical activity among previously sedentary gamers. Nintendo Switch Sports sold 8M+ copies in 6 months, with 60% of users reporting increased physical activity."}], "g": ["Adaptive Joy-Con", "Ring Fit Adventure", "Assist Mode", "27% Completion Increase", "Physical Wellbeing"]}, "sega": {"i": "S", "n": "SEGA", "s": "Video Games · Japan · Founded 1960 · Sonic · Yakuza · Persona", "o": "Founded in 1960, SEGA integrates ESG through cultural preservation, mental health awareness, and responsible game development. The Yakuza and Persona franchises demonstrate how video games can serve as meaningful social tools — preserving heritage and supporting mental health among millions of players globally.", "p": [{"t": "Preserving Cultural Heritage — Yakuza Series", "b": "The Yakuza franchise digitally preserves real Japanese neighborhoods including Tokyo's Kabukicho. A 2022 Japan Tourism Agency survey found 27% of foreign tourists aged 18–35 visited Kabukicho after playing Yakuza. Three Japanese universities adopted the game for urban studies and sociology courses. Educational game usage increased 42% among participating institutions in 2023."}, {"t": "Mental Health Awareness — Persona 5", "b": "Persona 5 tackles depression, bullying, social anxiety, and trauma among adolescents. A 2022 Oxford/Kyoto University study of 2,000+ players found 61% felt \"more understood\" after playing and 35% sought counseling after relating to the game's themes. Japan's Ministry of Health funded a pilot program in 6 high schools using Persona 5 content — leading to a 26% increase in mental health discussions and 12% drop in stigma."}], "g": ["Yakuza Cultural Preservation", "Persona 5 Mental Health", "27% Tourism Impact", "Education Ministry Japan", "61% Player Empowerment"]}, "roblox": {"i": "Rb", "n": "Roblox Corporation", "s": "Gaming Platform · US · Founded 2004 · 70M+ Daily Active Users", "o": "Roblox is a user-generated gaming ecosystem with 70M+ daily active users (2025). The platform sets industry benchmarks for protecting young users through AI safety systems, while democratizing access to game development education — reaching 21M students across 180 countries through its Education Initiative.", "p": [{"t": "Digital Civility and Online Safety", "b": "AI-powered Community Sift system blocks harmful content across 20+ languages. In 2023, the platform blocked 36M+ instances of harmful content daily — including hate speech, grooming attempts, and explicit language. Harassment incidents dropped 32% after integration. FOSI safety audit awarded Roblox a 92% compliance rating — one of the highest among UGC platforms."}, {"t": "Promoting Digital Literacy — Roblox Education", "b": "As of 2024, 21M+ students across 180 countries have participated in Roblox Education programs. 850,000+ students published at least one game. Trained 150,000+ educators in partnership with Code.org to integrate game development into STEM curricula. Oxford University research found participants were 38% more likely to pursue computer science education."}], "g": ["36M Threats Blocked Daily", "21M Students", "92% Safety Rating", "Code.org Partnership", "Digital Literacy"]}, "amazon": {"i": "A", "n": "Amazon", "s": "E-commerce & Cloud · US · Founded 1994 by Jeff Bezos", "o": "Amazon is a multinational technology company specializing in e-commerce, cloud computing, and digital streaming. As the world's largest online retailer, Amazon has committed $2 billion to sustainable technology programs and co-founded The Climate Pledge — mobilizing hundreds of companies toward net-zero carbon operations.", "p": [{"t": "The Climate Pledge — Net-Zero by 2040", "b": "Co-founded The Climate Pledge in 2019, aiming for net-zero carbon operations 10 years ahead of the Paris Agreement. By end of 2022, over 360 companies across 30 countries had signed on. Amazon invested $2 billion in sustainable tech and promotes climate-friendly products with Climate Pledge Friendly badges on its website."}, {"t": "Rivian Electric Delivery Fleet", "b": "Incorporated 9,000+ custom Rivian electric vans into its global delivery fleet, featuring advanced navigation, driver support, and routing systems. These EVs have delivered over 800 million packages in the U.S. Amazon also installed 17,000+ chargers at 120+ U.S. delivery stations."}, {"t": "Renewable Energy & Carbon Intensity", "b": "In 2022, 90% of Amazon's electricity came from renewable sources (up from 85% in 2021). The 2022 Sustainability Report recorded a 7% decrease in carbon intensity — meaning emissions fell relative to business growth, demonstrating that scaling and decarbonizing can happen simultaneously."}], "g": ["Net-Zero 2040", "The Climate Pledge", "9,000+ Rivian EVs", "90% Renewable Energy", "7% Carbon Intensity Reduction"]}, "apple": {"i": "Ap", "n": "Apple", "s": "Consumer Electronics · US · Founded 1976 · Steve Jobs & Steve Wozniak", "o": "Apple is a global technology company known for the iPhone, Mac, iPad, and Apple Watch. Beyond product innovation, Apple has made environmental sustainability a core business strategy — targeting carbon neutrality across its entire value chain by 2030, backed by the Restore Fund and renewable energy investments.", "p": [{"t": "Carbon Neutral Value Chain by 2030", "b": "Apple's January 2024 Carbon Removal Strategy targets a 75% reduction in emissions versus 2015 levels across its entire supply chain. Despite decarbonization efforts, Apple grew revenue 65%+ from 2015–2020 while cutting total emissions by more than 45% — disproving the trade-off between sustainability and growth."}, {"t": "Apple Watch Series 9 — First Carbon-Neutral Product", "b": "In 2023, the Apple Watch Series 9 and SE became the industry's first carbon-neutral products, achieving 75%+ reduction in product emissions. Each unit uses 100% clean electricity in manufacturing, 30% recycled or renewable materials by weight, and 50% of shipping done without air transport."}, {"t": "100% Renewable Electricity Globally", "b": "Since 2015, Apple has invested in manufacturing partner energy systems powered by solar and wind. All Apple corporate offices, data centers, and retail stores worldwide now run on 100% clean, renewable electricity — setting an industry precedent and influencing supplier behavior at scale."}], "g": ["Carbon Neutral 2030", "Apple Watch First Carbon-Neutral Product", "100% Renewable Electricity", "75% Emissions Cut", "Restore Fund"]}, "fairphone": {"i": "F", "n": "Fairphone", "s": "Smartphones · Netherlands · Founded 2013", "o": "Fairphone is a Dutch social enterprise making modular, ethical smartphones. By designing for repairability and sourcing conflict-free materials, Fairphone challenges the disposable electronics culture — extending device lifespan to 4.5 years, nearly double the industry average, while leading on supply chain ethics.", "p": [{"t": "Modular Design & Industry-Leading Longevity", "b": "Fairphone's modular architecture lets users independently replace the battery, screen, camera, and other components. Average lifespan of 4.5 years vs. the 2.5-year industry average. Fairphone also offers spare parts and repair tutorials, empowering users and drastically reducing e-waste."}, {"t": "Conflict-Free & Recycled Materials", "b": "Sources Fairtrade-certified gold and uses 40% post-consumer recycled plastics (as of 2021). While industry peers use virgin materials with opaque supply chains, Fairphone traces minerals to origin, eliminates conflict minerals, and publishes transparent sourcing maps — setting the highest ethical standard in the sector."}, {"t": "Fair Labor & Ethical Consumer Best Buy", "b": "Actively improves working conditions and ensures fair wages in partner factories. Publishes detailed supply chain reports for consumer transparency. In 2022, received the highest possible score in the Electronics category of the Ethical Consumer Best Buy Label."}], "g": ["4.5yr Device Lifespan", "Modular Design", "Fairtrade Gold", "40% Recycled Plastics", "Ethical Consumer Best Buy 2022"]}, "adobe": {"i": "Ad", "n": "Adobe", "s": "Software · US · Founded 1982 · Photoshop · Acrobat · Substance 3D", "o": "Adobe is a global software company transforming how the world creates and communicates. Beyond creative tools, Adobe is leading the paperless office revolution — its digital workflow products eliminate billions of paper documents annually, while Substance 3D reduces the environmental cost of product visualization.", "p": [{"t": "Adobe Acrobat Sign — Eliminating Paper Workflows", "b": "Adobe Acrobat Sign (formerly EchoSign, launched 2006) enables fully digital document workflows. For every 1 million pages signed daily: 27M gallons of water saved, 1.5M lbs of waste eliminated, and 23.4M lbs of carbon emissions reduced. Businesses gain efficiency, accuracy, and security while eliminating physical paperwork entirely."}, {"t": "Substance 3D — 98% Emissions Cut vs. Traditional Photoshoots", "b": "Substance 3D lets designers create photorealistic virtual prototypes and product visualizations, eliminating the need for physical samples and studio photoshoots. Companies can cut carbon emissions by an average of 98% compared to traditional shoots. Global brands like HUGO BOSS use it to dramatically reduce their carbon footprint. Adobe also offers the Substance 3D Sustainability Calculator."}], "g": ["Adobe Acrobat Sign", "23.4M lbs CO2 Reduced/1M Pages", "Substance 3D", "98% Emissions Cut", "HUGO BOSS Partnership"]}, "docusign": {"i": "D", "n": "DocuSign", "s": "E-Signature · US · Founded 2003 · 1B+ Agreements Processed", "o": "DocuSign pioneered the global e-signature industry and has processed over 1 billion agreements. Beyond business efficiency, DocuSign has made environmental impact central to its mission — replacing billions of paper documents with digital alternatives and supporting forest conservation worldwide.", "p": [{"t": "Massive Paper Elimination Impact", "b": "DocuSign and its customers have collectively saved an estimated 38 billion sheets of paper, 15 billion litres of water, 600,000 tonnes of wood, 4 million trees, 1.4 million tonnes of CO2, and 100,000 tonnes of waste. The company pledged carbon neutrality by 2022 and integrates an environmental impact calculator into its eSignature product."}, {"t": "DocuSign for Forests — Forest Conservation", "b": "The DocuSign for Forests initiative directs resources to nonprofits dedicated to reforestation and forest protection worldwide. Ensures that the paper saved through digital signing translates directly into preserved forests and restored ecosystems."}, {"t": "Broader Reach vs. Adobe Sign", "b": "Unlike Adobe Sign (integrated within the Adobe Document Cloud), DocuSign connects with a wide range of third-party apps including Google Workspace and Microsoft Office 365 — enabling virtually any organization to go paperless regardless of their existing software stack."}], "g": ["38B Sheets Paper Eliminated", "4M Trees Preserved", "DocuSign for Forests", "Carbon Neutral 2022", "1.4M Tonnes CO2 Saved"]}, "google": {"i": "Go", "n": "Google", "s": "Internet Services · US · Founded 1998 · Larry Page & Sergey Brin", "o": "Google is a global technology company whose products reach billions of people daily. By embedding sustainability into its most-used services — Maps, Search, Cloud — and leveraging AI at scale, Google enables individuals and organizations worldwide to reduce their environmental footprint through everyday actions.", "p": [{"t": "Google Maps AI Eco-Routing", "b": "Google Maps' AI-powered eco-friendly routing has collectively prevented an estimated 1.2 million metric tons of carbon emissions since launch — equivalent to removing 250,000 fuel-based vehicles from the road annually. The feature automatically suggests lower-emission routes with similar travel times."}, {"t": "Google Cloud Active Assist", "b": "Active Assist uses machine learning to identify and eliminate unused cloud workloads, minimizing energy consumption and carbon emissions. Google has invested heavily in improving data center efficiency and sourcing carbon-free energy — enabling customers to make real-time, data-driven decisions that reduce their climate risk."}, {"t": "AI for Sustainability at Scale", "b": "Google's Environmental Report 2023 identifies AI for sustainability as a key growth area. Searches for \"solar energy,\" \"electric bicycles,\" and \"electric cars\" hit all-time highs in 2022. Google recognizes that delivering AI's full environmental benefit requires collective effort from researchers, businesses, governments, and citizens."}], "g": ["AI Eco-Routing", "1.2M Metric Tons CO2 Prevented", "Active Assist", "Carbon-Free Data Centers", "AI for Sustainability"]}, "ecosia": {"i": "E", "n": "Ecosia", "s": "Search Engine · Germany · Founded 2009 · Carbon-Negative", "o": "Ecosia is a Berlin-based search engine that uses 100% of its profits to fund climate action, primarily tree-planting. With 20M+ users globally, Ecosia has turned internet search into a force for reforestation — and operates as a carbon-negative company, removing more CO2 than its searches produce.", "p": [{"t": "150M+ Trees Planted in Biodiversity Hotspots", "b": "As of 2023, Ecosia has planted over 150 million trees in biodiversity hotspots across Brazil, Indonesia, Burkina Faso, and 35+ other countries. At least 80% of profits go directly to tree-planting projects. Trees are native species, managed sustainably, and selected to restore habitats, support local economies, and improve soil health."}, {"t": "Carbon-Negative Operations", "b": "Ecosia's solar plants generate twice the electricity needed to power all searches — making every search carbon-negative. Ecosia publishes monthly financial reports and tree-planting receipts, giving users full transparency into exactly how their searches contribute to environmental impact."}, {"t": "Social Sustainability & Community Partnerships", "b": "Ecosia partners with local organizations in each reforestation country to ensure projects benefit local communities economically and ecologically. Planting programs include farmer training, livelihood support, and long-term monitoring — creating systemic change beyond just planting trees."}], "g": ["150M+ Trees Planted", "Carbon-Negative", "100% Profits to Climate", "Solar-Powered Searches", "20M+ Users"]}, "microsoft": {"i": "Ms", "n": "Microsoft", "s": "Software & Cloud · US · Founded 1975 · Windows · Azure · Office", "o": "Microsoft is a global technology leader serving billions of users. Through Microsoft Philanthropies and ambitious sustainability commitments, Microsoft is simultaneously working to eliminate the digital divide — connecting underserved communities to economic opportunity — and achieve carbon negativity, water positivity, and zero waste by 2030.", "p": [{"t": "Microsoft Philanthropies — Bridging the Digital Divide", "b": "Microsoft Philanthropies equips youth with digital skills for future employment, provides technology to nonprofits and humanitarian organizations, and partners with Vodafone to deliver education-specific cellular connectivity to schools in the Middle East and Africa — digitizing infrastructure and accelerating internet access for students previously excluded from the digital economy."}, {"t": "Carbon Negative, Water Positive, Zero Waste by 2030", "b": "Microsoft targets: carbon negative by 2030 (and removing all historical emissions by 2050), water positive by 2030, zero waste across direct operations by 2030, and protecting more land than it uses by 2025. These commitments span SDGs 6, 12, and 13."}, {"t": "Planetary Computer — Global Environmental Data", "b": "Microsoft launched the Planetary Computer to aggregate and serve global environmental datasets for conservation research. Enables scientists, NGOs, and policymakers to make data-driven decisions for land use, biodiversity protection, and climate resilience. Aligns with SDG 13 (Climate Action) and SDG 15 (Life on Land)."}], "g": ["Carbon Negative 2030", "Water Positive 2030", "Planetary Computer", "Microsoft Philanthropies", "Vodafone Partnership"]}, "goodonyou": {"i": "G", "n": "Good On You", "s": "Fashion Tech · Australia · Founded 2015", "o": "Good On You is an ethical fashion platform that rates clothing brands on their impact on people, planet, and animals. Founded in 2015 by sustainability experts and tech developers, the app has become the world's leading source of ethical fashion information — directly shaping consumer behavior and driving industry-wide improvements.", "p": [{"t": "3,000+ Brand Ratings Driving Behavior Change", "b": "By 2023, Good On You had rated over 3,000 fashion brands on labor practices, environmental impact, and animal welfare. 85% of users report changing their purchasing habits based on the app's ratings. Over 500 brands have improved their sustainability practices after being reviewed. The platform receives 1M+ monthly visits."}, {"t": "UN Environment Programme Partnership", "b": "Good On You collaborates with the United Nations Environment Programme to promote sustainable consumption globally. Through these efforts, the platform has contributed to a 20% increase in sustainable product offerings from the brands they rate — demonstrating that consumer information drives supply-side change."}], "g": ["3,000+ Brands Rated", "85% Behavior Change", "500+ Brands Improved", "UN UNEP Partnership", "1M+ Monthly Visits"]}, "patagonia_f": {"i": "P", "n": "Patagonia", "s": "Outdoor Apparel · US · Founded 1973 by Yvon Chouinard", "o": "Patagonia is the outdoor apparel industry's most celebrated sustainability leader. From its landmark \"Don't Buy This Jacket\" campaign to donating the entire company to fight climate change, Patagonia proves that radical transparency and environmental commitment are compatible with profitable, growing business.", "p": [{"t": "\"Don't Buy This Jacket\" — Anti-Overconsumption", "b": "Patagonia's landmark 2011 New York Times ad challenged consumers to resist buying new products — including Patagonia's own. CEO Rose Marcario explained it targeted environmentally conscious consumers, building brand trust and market share in that demographic. The campaign is now studied in business schools as a model of purpose-driven marketing."}, {"t": "70% Recycled Materials & 100% Renewable Energy", "b": "As of 2019, 70% of Patagonia's product line uses recycled materials (including recycled polyester from plastic bottles). All U.S. offices, retail stores, and distribution centers run on 100% renewable electricity (76% globally). 86% of total emissions come from raw materials and supply chain — Patagonia focuses ESG investment there."}, {"t": "1% for the Planet & Activism", "b": "Patagonia donates 1% of annual sales to environmental organizations through 1% for the Planet. In 2022, founder Yvon Chouinard transferred ownership to a trust and nonprofit dedicated entirely to fighting climate change — the most radical ESG commitment any major brand has made."}], "g": ["1% for the Planet", "70% Recycled Materials", "100% Renewable Energy", "Don't Buy This Jacket", "Company Donated to Climate"]}, "prana": {"i": "Pr", "n": "Prana", "s": "Lifestyle Apparel · US · Founded 1992 · Certified B Corp", "o": "Prana is a Colorado-based lifestyle brand founded in 1992 by Beaver and Pam Theodosakis. A certified B Corp and Fair Labor Association member, Prana builds sustainability into every aspect of its business — from organic and recycled material sourcing to packaging elimination and third-party ethical certifications.", "p": [{"t": "95% Sustainable Materials Across Product Line", "b": "In 2020, 95% of Prana products were made from sustainably sourced materials including organic cotton, recycled wool, recycled polyester, and hemp. These materials significantly reduce environmental impact compared to conventional alternatives. Prana is a member of the Fair Labor Association (FLA) and holds the Responsible Wool Standard (RWS) certification."}, {"t": "Responsible Packaging Movement — 10M+ Polybags Eliminated", "b": "Prana's Responsible Packaging Movement aims to fully eliminate single-use plastic from consumer packaging, replacing it with recycled, reusable, or biodegradable alternatives. To date, the initiative has removed over 10 million polybags from Prana's packaging process — a tangible, measurable environmental win."}, {"t": "Textile Exchange Recognition & Third-Party Certification", "b": "In 2021, the Textile Exchange recognized Prana for leadership in sustainability, particularly for advancing the use of preferred fibers. Prana's transparency through reporting and third-party certifications sets a gold standard for ethical fashion — proving that small and mid-size brands can lead on ESG."}], "g": ["95% Sustainable Materials", "10M+ Polybags Removed", "FLA Member", "Responsible Wool Standard", "Textile Exchange Recognition"]}, "novonordisk": {"i": "N", "n": "Novo Nordisk", "s": "Pharmaceuticals · Denmark · Founded 1923 · Diabetes & Obesity Care", "o": "Novo Nordisk is a global healthcare company and the world's leading diabetes care provider. Recognizing the severe burden of diabetes on low-income populations and healthcare systems, Novo Nordisk combines affordable access programs with local capacity-building — aligning pharmaceutical ESG with global health equity.", "p": [{"t": "Base of the Pyramid (BoP) — Affordable Diabetes Care", "b": "The BoP project provides affordable insulin and diabetes care to low-income populations in countries where healthcare resources are scarce. Insulin is offered at reduced prices, ensuring even the most economically disadvantaged patients can access essential treatment. This directly addresses health equity and SDG 3: Good Health and Well-being."}, {"t": "Training Local Healthcare Professionals", "b": "Novo Nordisk collaborates with local health authorities and institutions to train medical staff in the latest diabetes treatment and management. By investing in local capacity rather than just supplying products, Novo Nordisk creates sustainable healthcare infrastructure in underserved regions."}, {"t": "Cities Changing Diabetes — 100+ Local Partners", "b": "The Cities Changing Diabetes program collaborates with 100+ local partners across 40+ cities to address the urban diabetes epidemic. Aligns with SDG 11 (Sustainable Cities), SDG 13 (Climate Action), and SDG 17 (Partnerships). Novo Nordisk also targets zero environmental impact by 2030."}], "g": ["Base of the Pyramid", "Affordable Insulin", "100+ City Partners", "Cities Changing Diabetes", "Zero Environmental Impact 2030"]}, "mondragon": {"i": "Mo", "n": "Mondragon Corporation", "s": "Worker Cooperative · Basque Region, Spain · Founded 1956", "o": "Mondragon is the world's largest worker cooperative — a federation of 96 cooperatives employing 70,000 worker-owners across manufacturing, finance, retail, and education. Its radical democratic model and strict pay equity policies demonstrate that a large-scale industrial enterprise can operate without exploitative income inequality.", "p": [{"t": "1:6 Pay Ratio — Dismantling Income Inequality", "b": "Mondragon enforces a strict policy: the highest-paid employee earns no more than 6 times the salary of the lowest-paid worker. While typical corporations have executive-to-worker pay ratios of 344:1, Mondragon's 1:6 ratio creates genuine income equity at scale. Workers invest 17,000 EUR to become members, receiving profit shares and long-term financial security."}, {"t": "Democratic Ownership — 70,000 Worker-Owners", "b": "All 70,000 members — from factory floor to CEO — are co-owners with equal voting power in general assemblies. Decisions on strategy, wages, and direction require democratic approval. Profits are allocated: 60% reinvested in the cooperative, 30% distributed to member capital accounts, 10% contributed to the local community."}, {"t": "Crisis Solidarity — No Layoffs Model", "b": "During the 2008 financial crisis and COVID-19 pandemic, Mondragon facilitated internal job transfers to prevent layoffs and provided financial support to struggling cooperatives. This solidarity model ensures workers remain economically secure during downturns — demonstrating a fundamentally different approach to business resilience."}], "g": ["1:6 Pay Ratio", "70,000 Worker-Owners", "No Layoffs Policy", "Democratic Governance", "Community 10% Profit Share"]}};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// menu
+const links = $('#links'), menuBtn = $('#menuBtn');
+function setMenu(open){ links.classList.toggle('open', open); document.body.classList.toggle('menu-open', open); menuBtn.setAttribute('aria-expanded', open); }
+menuBtn.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+links.addEventListener('click', e => { if(e.target.closest('a')) setMenu(false); });
+matchMedia('(max-width:1060px)').addEventListener('change', e => { if(!e.matches) setMenu(false); });
+
+// dialogs
+let lastFocus = null;
+function openOv(el){ lastFocus = document.activeElement; el.hidden = false; document.body.classList.add('ov-open'); el.querySelector('.panel').scrollTop = 0; el.querySelector('.x').focus(); }
+function closeOv(){ document.querySelectorAll('.ov').forEach(o => o.hidden = true); document.body.classList.remove('ov-open'); lastFocus?.focus(); }
+document.querySelectorAll('.ov').forEach(o => o.addEventListener('click', e => { if(e.target === o || e.target.closest('[data-close]')) closeOv(); }));
+
+// episodes
+const order = Object.keys(EPS); let epKey = null;
+function showEp(key){
+  epKey = key; const d = EPS[key];
+  $('#epImg').src = d.img; $('#epImg').alt = d.series + ' ' + d.no + ': ' + d.title;
+  $('#epSeries').textContent = d.series + ' · ' + d.no;
+  $('#epTitle').textContent = d.title;
+  $('#epSaid').innerHTML = d.said.map(p => `<p>${esc(p)}</p>`).join('');
+  $('#epMsg').innerHTML = d.msg.map(p => `<p>${esc(p)}</p>`).join('');
+}
+document.querySelectorAll('.ep').forEach(b => b.addEventListener('click', () => { showEp(b.dataset.ep); openOv($('#ovEp')); }));
+const step = n => { const i = order.indexOf(epKey); showEp(order[(i + n + order.length) % order.length]); $('#ovEp .panel').scrollTop = 0; };
+$('#epPrev').addEventListener('click', () => step(-1));
+$('#epNext').addEventListener('click', () => step(1));
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape'){ closeOv(); setMenu(false); }
+  if(!$('#ovEp').hidden && e.key === 'ArrowRight') step(1);
+  if(!$('#ovEp').hidden && e.key === 'ArrowLeft') step(-1);
+});
+
+// ESG filter + reports
+document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+  document.querySelectorAll('.chip').forEach(x => { x.classList.toggle('on', x === c); x.setAttribute('aria-pressed', x === c); });
+  let n = 0;
+  document.querySelectorAll('.co').forEach(card => { const show = c.dataset.f === 'all' || card.dataset.g === c.dataset.f; card.hidden = !show; n += show; });
+  $('#coCount').textContent = n + (n === 1 ? ' company' : ' companies');
+}));
+document.querySelectorAll('.co').forEach(card => card.addEventListener('click', () => {
+  const d = ESG[card.dataset.id];
+  $('#coInit').textContent = d.i; $('#coTitle').textContent = d.n; $('#coSub').textContent = d.s; $('#coOv').textContent = d.o;
+  $('#coPts').innerHTML = d.p.map(p => `<div class="init"><i aria-hidden="true">✓</i><div><b>${esc(p.t)}</b><p>${esc(p.b)}</p></div></div>`).join('');
+  $('#coTags').innerHTML = d.g.map(t => `<span>${esc(t)}</span>`).join('');
+  openOv($('#ovCo'));
+}));
+</script>
+
+</body>
+</html>

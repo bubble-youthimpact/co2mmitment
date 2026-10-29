@@ -362,7 +362,7 @@ async function buildMap(which){
 }
 
 /* ---------- PAGES ---------- */
-const PAGES = ['home','about','co2','air-quality','insights','dashboard','esg','petitions','contact'];
+const PAGES = ['home','about','co2','air-quality','insights','dashboard','petitions','contact'];
 function startPage(page){
   if(page==='co2') buildMap('co2');
   if(page==='air-quality') buildMap('aq');
@@ -389,7 +389,7 @@ function setMenu(open, animate=true){
   $('#menuBtn').setAttribute('aria-expanded',open); $('#menuBtn').setAttribute('aria-label',open?'Close menu':'Menu');
 }
 $('#menuBtn').addEventListener('click',()=>setMenu(!$('#links').classList.contains('open')));
-matchMedia('(max-width:1120px)').addEventListener('change', e=>{ if(!e.matches) setMenu(false, false); });
+matchMedia('(max-width:1200px)').addEventListener('change', e=>{ if(!e.matches) setMenu(false, false); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') setMenu(false); });
 $('#links').addEventListener('click',e=>{ if(e.target.closest('a')) setMenu(false); });
 $('#toTop').addEventListener('click',e=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
