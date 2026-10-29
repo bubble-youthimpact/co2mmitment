@@ -253,11 +253,16 @@ $('#contact-form').addEventListener('submit', async e => {
       method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'}, body:JSON.stringify(data)
     });
     const j = await r.json().catch(()=>({}));
-    if(!r.ok || j.success === 'false' || j.success === false) throw new Error(j.message || 'send failed');
+    console.log('[FormSubmit]', r.status, j);
+    if(!r.ok || j.success === 'false' || j.success === false) throw Object.assign(new Error(j.message || 'send failed'), {fs:j.message});
     f.reset(); f.hidden = true; $('#contact-sent').hidden = false;
   }catch(err){
     note.className = 'form-note form-error';
-    note.textContent = 'Your message couldn’t be sent. Check your connection and try again.';
+    console.warn('[FormSubmit] failed', err);
+    note.textContent = location.protocol === 'file:'
+      ? 'The contact form only works on the live website, not when the file is opened from your computer.'
+      : err.fs ? 'FormSubmit says: ' + err.fs
+      : 'Your message couldn’t be sent. Check your connection and try again.';
   }finally{
     btn.disabled = false; btn.textContent = 'Send message';
   }
@@ -299,7 +304,9 @@ async function locate(address, pos){
 }
 function newMap(el){
   el.innerHTML = '';
-  return new google.maps.Map(el, { center:{lat:25,lng:20}, zoom:2, minZoom:2, mapTypeControl:true,
+  // Start closer in: zoom 3 on wider screens (Europe, Africa and Asia in view), zoom 2 on phones
+  const zoom = el.clientWidth >= 700 ? 3 : 2;
+  return new google.maps.Map(el, { center:{lat:30,lng:30}, zoom, minZoom:2, mapTypeControl:true,
     mapTypeControlOptions:{position:google.maps.ControlPosition.TOP_LEFT}, streetViewControl:false, gestureHandling:'cooperative' });
 }
 const AQ_COLORS = ['#5aaccc','#9fd64a','#f6c832','#f48c3e','#ef5b63','#9a6fc0','#a06a78'];
