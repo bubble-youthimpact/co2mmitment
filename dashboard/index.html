@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CO2 Dashboard | CO2mmitment</title>
+<meta name="description" content="Twenty charts on Scope 1–3 emissions for 45 major companies across seven countries.">
+<link rel="canonical" href="https://co2mmitment.com/dashboard/">
+<meta name="theme-color" content="#43a845">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CO2mmitment">
+<meta property="og:title" content="CO2 Dashboard | CO2mmitment">
+<meta property="og:description" content="Twenty charts on Scope 1–3 emissions for 45 major companies across seven countries.">
+<meta property="og:url" content="https://co2mmitment.com/dashboard/">
+<meta property="og:image" content="https://co2mmitment.com/images/og-image.png">
+<meta property="og:image:alt" content="CO2 Dashboard | CO2mmitment">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CO2 Dashboard | CO2mmitment">
+<meta name="twitter:description" content="Twenty charts on Scope 1–3 emissions for 45 major companies across seven countries.">
+<meta name="twitter:image" content="https://co2mmitment.com/images/og-image.png">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=storm&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body data-page="dashboard" data-root="../">
+<div class="site">
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="nav-wrap">
+    <a class="brand" href="../" aria-label="CO2mmitment home">
+      <span class="logo-mark" aria-hidden="true"><span class="ms">storm</span><svg class="logo-svg" viewBox="11 11 88 88" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7"><circle cx="55" cy="54.75" r="26.25"/><circle cx="55" cy="54.75" r="11" stroke-width="7.5"/><path d="M28.85 57.04C28.5 53 24.5 45 24.5 35C24.5 28 25.4 22.5 27 18"/><path d="M81.15 52.46C81.5 56.5 85.5 64.5 85.5 74.5C85.5 81.5 84.6 87 83 91.5"/></g></svg></span>
+      CO2mmitment
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="links">
+      <svg class="bars" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="x" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="links" id="links">
+      <a href="../about/">About</a>
+      <a href="../co2/">CO2</a>
+      <a href="../air-quality/">Air Quality</a>
+      <a href="../insights/">Insights</a>
+      <a href="../dashboard/" class="on" aria-current="page">CO2 Dashboard</a>
+      <a href="../esg/">ESG Best Practices</a>
+      <a href="../petitions/">Petitions</a>
+      <a class="btn" href="../contact/">Contact</a>
+    </div>
+  </div>
+</nav>
+<main>
+<section class="page show" id="p-dashboard" data-title="CO2 Dashboard | CO2mmitment">
+  <div style="padding-top:32px">
+<style>
+  #carbon-dash * { box-sizing: border-box; margin: 0; padding: 0; }
+  #carbon-dash {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #FFFFFF;
+    color: #1a1a18;
+    padding: 1.5rem 1rem 3rem;
+    line-height: 1.6;
+    width: 100%;
+  }
+  #carbon-dash .hdr {
+    max-width: 860px; margin: 0 auto 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1.5px solid #1a1a18;
+  }
+  #carbon-dash .hdr h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.4px; margin-bottom: 4px; }
+  #carbon-dash .hdr p  { font-size: 13px; color: #5a5a56; }
+  #carbon-dash .badge  { display:inline-block; background:#1a1a18; color:#fff; font-size:11px; font-weight:500; padding:3px 8px; border-radius:4px; margin-right:5px; margin-bottom:6px; }
+  #carbon-dash .kpi-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:8px; max-width:860px; margin:0 auto 2rem; }
+  #carbon-dash .kpi { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:10px; padding:0.8rem 1rem; }
+  #carbon-dash .kpi-l { font-size:10px; color:#8f8f8a; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }
+  #carbon-dash .kpi-v { font-size:18px; font-weight:600; }
+  #carbon-dash .kpi-s { font-size:11px; color:#5a5a56; margin-top:1px; }
+  #carbon-dash .sec-hdr { max-width:860px; margin:2.25rem auto 0.9rem; display:flex; align-items:center; gap:10px; }
+  #carbon-dash .sec-hdr span { font-size:11px; font-weight:600; letter-spacing:1.4px; text-transform:uppercase; color:#8f8f8a; white-space:nowrap; }
+  #carbon-dash .sec-hdr::after { content:''; flex:1; height:0.5px; background:rgba(0,0,0,0.09); }
+  #carbon-dash .card { background:#fff; border:0.5px solid rgba(0,0,0,0.09); border-radius:10px; padding:1.1rem 1.3rem; max-width:860px; margin:0 auto 1.1rem; }
+  #carbon-dash .card h2 { font-size:14px; font-weight:600; margin-bottom:2px; }
+  #carbon-dash .card .sub { font-size:11px; color:#5a5a56; margin-bottom:0.85rem; }
+  #carbon-dash .leg { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px; font-size:11px; color:#5a5a56; }
+  #carbon-dash .ld  { width:9px; height:9px; border-radius:2px; display:inline-block; margin-right:3px; vertical-align:middle; }
+  #carbon-dash .cw  { position:relative; width:100%; }
+  #carbon-dash footer { max-width:860px; margin:2.5rem auto 0; font-size:11px; color:#8f8f8a; border-top:0.5px solid rgba(0,0,0,0.09); padding-top:0.9rem; }
+</style>
+
+<div id="carbon-dash">
+  <div class="hdr">
+    <div><span class="badge">ESG</span><span class="badge">Carbon</span><span class="badge">7 Countries · 45 Companies</span></div>
+    <h1>Carbon Emissions Dashboard</h1>
+    <p>20 visualizations · Scope 1–3 CO₂e · USD revenues &amp; market caps (TTM)</p>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi"><p class="kpi-l">Companies</p><p class="kpi-v">45</p><p class="kpi-s">across 7 countries</p></div>
+    <div class="kpi"><p class="kpi-l">Highest emitter</p><p class="kpi-v">Shell</p><p class="kpi-s">1,242M tCO₂e</p></div>
+    <div class="kpi"><p class="kpi-l">Lowest emitter</p><p class="kpi-v">Meituan</p><p class="kpi-s">2,161 tCO₂e</p></div>
+    <div class="kpi"><p class="kpi-l">Ratio hi/lo</p><p class="kpi-v">575,000×</p><p class="kpi-s">Shell vs Meituan</p></div>
+    <div class="kpi"><p class="kpi-l">Biggest sector</p><p class="kpi-v">Energy</p><p class="kpi-s">~60% of all CO₂e</p></div>
+  </div>
+
+  <div class="sec-hdr"><span>Ranking &amp; Distribution</span></div>
+  <div class="card">
+    <h2>① Top 15 Carbon Emitters — All Companies</h2>
+    <p class="sub">Unit: million tCO₂e &nbsp;|&nbsp; Color = country</p>
+    <div class="leg">
+      <span><span class="ld" style="background:#378ADD"></span>US</span>
+      <span><span class="ld" style="background:#1D9E75"></span>China</span>
+      <span><span class="ld" style="background:#D85A30"></span>Korea</span>
+      <span><span class="ld" style="background:#D4537E"></span>Japan</span>
+      <span><span class="ld" style="background:#7F77DD"></span>India</span>
+      <span><span class="ld" style="background:#BA7517"></span>Germany</span>
+      <span><span class="ld" style="background:#888780"></span>UK</span>
+    </div>
+    <div class="cw" style="height:560px"><canvas id="c1"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>② Bottom 15 Carbon Emitters — All Companies</h2>
+    <p class="sub">Unit: thousand tCO₂e &nbsp;|&nbsp; Color = country</p>
+    <div class="cw" style="height:560px"><canvas id="c2"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>③ Total Carbon Emissions by Country</h2>
+    <p class="sub">Sum of all companies per country &nbsp;|&nbsp; Unit: million tCO₂e</p>
+    <div class="cw" style="height:300px"><canvas id="c3"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>④ Average Emissions per Company by Country</h2>
+    <p class="sub">Unit: million tCO₂e</p>
+    <div class="cw" style="height:300px"><canvas id="c4"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑤ Country Share of Total Emissions</h2>
+    <p class="sub">Proportional share of all 45 companies' combined emissions</p>
+    <div class="leg">
+      <span><span class="ld" style="background:#888780"></span>UK ~34%</span>
+      <span><span class="ld" style="background:#378ADD"></span>US ~29%</span>
+      <span><span class="ld" style="background:#D4537E"></span>Japan ~16%</span>
+      <span><span class="ld" style="background:#BA7517"></span>Germany ~13%</span>
+      <span><span class="ld" style="background:#1D9E75"></span>China ~5%</span>
+      <span><span class="ld" style="background:#7F77DD"></span>India ~2%</span>
+      <span><span class="ld" style="background:#D85A30"></span>Korea ~1%</span>
+    </div>
+    <div class="cw" style="height:300px;max-width:300px;margin:0 auto"><canvas id="c5"></canvas></div>
+  </div>
+
+  <div class="sec-hdr"><span>Industry Analysis</span></div>
+  <div class="card">
+    <h2>⑥ Total Emissions by Industry Sector</h2>
+    <p class="sub">Unit: million tCO₂e</p>
+    <div class="cw" style="height:380px"><canvas id="c6"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑦ Energy &amp; Oil Companies — Emissions Comparison</h2>
+    <p class="sub">Unit: million tCO₂e</p>
+    <div class="cw" style="height:360px"><canvas id="c7"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑧ Automotive Companies — ICE vs EV-Focused</h2>
+    <p class="sub">Unit: million tCO₂e</p>
+    <div class="leg">
+      <span><span class="ld" style="background:#E24B4A"></span>ICE-dominant</span>
+      <span><span class="ld" style="background:#1D9E75"></span>EV-focused</span>
+    </div>
+    <div class="cw" style="height:440px"><canvas id="c8"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑨ Tech &amp; Internet Companies — Emissions</h2>
+    <p class="sub">Unit: thousand tCO₂e</p>
+    <div class="cw" style="height:420px"><canvas id="c9"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑩ Financial Sector — Emissions Comparison</h2>
+    <p class="sub">Unit: thousand tCO₂e</p>
+    <div class="cw" style="height:420px"><canvas id="c10"></canvas></div>
+  </div>
+
+  <div class="sec-hdr"><span>Emissions Efficiency</span></div>
+  <div class="card">
+    <h2>⑪ Carbon Intensity — Emissions per $1B Revenue (Top 12)</h2>
+    <p class="sub">Thousand tCO₂e per $1B revenue</p>
+    <div class="cw" style="height:480px"><canvas id="c11"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑫ Emissions per Employee (Top 12)</h2>
+    <p class="sub">tCO₂e per employee</p>
+    <div class="cw" style="height:480px"><canvas id="c12"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑬ Emissions vs Revenue — All 45 Companies</h2>
+    <p class="sub">X: Revenue ($B) &nbsp;|&nbsp; Y: Emissions (M tCO₂e) &nbsp;|&nbsp; Color = country</p>
+    <div class="cw" style="height:420px"><canvas id="c13"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑭ Emissions vs Market Cap</h2>
+    <p class="sub">X: Market Cap ($B) &nbsp;|&nbsp; Y: Emissions (M tCO₂e)</p>
+    <div class="cw" style="height:420px"><canvas id="c14"></canvas></div>
+  </div>
+
+  <div class="sec-hdr"><span>Country Deep-Dives</span></div>
+  <div class="card">
+    <h2>⑮ US Companies — Emissions Breakdown</h2>
+    <p class="sub">All US companies &nbsp;|&nbsp; Unit: million tCO₂e</p>
+    <div class="cw" style="height:560px"><canvas id="c15"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑯ Korean Companies — Emissions Breakdown</h2>
+    <p class="sub">All Korean companies &nbsp;|&nbsp; Unit: thousand tCO₂e</p>
+    <div class="cw" style="height:520px"><canvas id="c16"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑰ Chinese Companies — Emissions Breakdown</h2>
+    <p class="sub">All Chinese companies &nbsp;|&nbsp; Unit: million tCO₂e</p>
+    <div class="cw" style="height:520px"><canvas id="c17"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑱ Japan · Germany · UK — Top 3 Emitters per Country</h2>
+    <p class="sub">Grouped bar &nbsp;|&nbsp; Unit: million tCO₂e &nbsp;|&nbsp; Hover for company names</p>
+    <div class="leg">
+      <span><span class="ld" style="background:#D4537E"></span>Japan</span>
+      <span><span class="ld" style="background:#BA7517"></span>Germany</span>
+      <span><span class="ld" style="background:#888780"></span>UK</span>
+    </div>
+    <div class="cw" style="height:340px"><canvas id="c18"></canvas></div>
+  </div>
+
+  <div class="sec-hdr"><span>Benchmarks &amp; Context</span></div>
+  <div class="card">
+    <h2>⑲ Emissions vs Employees — Bubble Chart</h2>
+    <p class="sub">X: Employees (thousands) &nbsp;|&nbsp; Y: Emissions (M tCO₂e) &nbsp;|&nbsp; Bubble size = Revenue</p>
+    <div class="cw" style="height:440px"><canvas id="c19"></canvas></div>
+  </div>
+  <div class="card">
+    <h2>⑳ Green Leaders — Lowest-Emission Companies (&lt;100K tCO₂e)</h2>
+    <p class="sub">Unit: thousand tCO₂e</p>
+    <div class="cw" style="height:440px"><canvas id="c20"></canvas></div>
+  </div>
+
+  <footer>
+    Data sources: Company ESG/sustainability reports, annual filings (TTM). Emissions represent Scope 1–3 where available. Market caps and revenues in USD billions.
+  </footer>
+</div>
+
+<script>
+(function() {
+  var script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js';
+  script.onload = buildCharts;
+  script.onerror = function() {
+    var s2 = document.createElement('script');
+    s2.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';
+    s2.onload = buildCharts;
+    document.head.appendChild(s2);
+  };
+  document.head.appendChild(script);
+
+  function buildCharts() {
+    const CC = { us:'#378ADD', cn:'#1D9E75', kr:'#D85A30', jp:'#D4537E', in:'#7F77DD', de:'#BA7517', uk:'#888780' };
+    const gc = 'rgba(0,0,0,0.06)', tc = '#888';
+
+    const all45 = [
+      {n:'Samsung Electronics',co:144600000,rev:219,emp:260,mkt:396,c:'kr',s:'Electronics'},
+      {n:'SK hynix',co:4860000,rev:55.3,emp:46.8,mkt:177,c:'kr',s:'Semiconductors'},
+      {n:'Samsung Biologics',co:219698,rev:3.59,emp:5.2,mkt:60.7,c:'kr',s:'Pharma'},
+      {n:'Hyundai Motor',co:2100000,rev:130.3,emp:126.4,mkt:38.8,c:'kr',s:'Auto'},
+      {n:'Kia',co:1178500,rev:79.4,emp:35.6,mkt:28.3,c:'kr',s:'Auto'},
+      {n:'SK Innovation',co:10710000,rev:55.3,emp:2.1,mkt:17.3,c:'kr',s:'Energy'},
+      {n:'LG Energy Solution',co:1486391,rev:18,emp:32,mkt:84.7,c:'kr',s:'Battery'},
+      {n:'Naver',co:440618,rev:8.08,emp:15.9,mkt:25.6,c:'kr',s:'Tech'},
+      {n:'Kakao',co:60596,rev:5.72,emp:3.8,mkt:18,c:'kr',s:'Tech'},
+      {n:'POSCO',co:25289698,rev:51.4,emp:44.6,mkt:16.9,c:'kr',s:'Steel'},
+      {n:'LG Chem',co:9351641,rev:35.6,emp:18.7,mkt:20.7,c:'kr',s:'Chemicals'},
+      {n:'Samsung SDI',co:2208938,rev:12.3,emp:13.4,mkt:14,c:'kr',s:'Battery'},
+      {n:'Hyundai Mobis',co:22457,rev:41.5,emp:12.3,mkt:19.4,c:'kr',s:'Auto Parts'},
+      {n:'Celltrion',co:93515,rev:2.57,emp:2.9,mkt:27.5,c:'kr',s:'Pharma'},
+      {n:'SK Telecom',co:3237292,rev:12.6,emp:5.6,mkt:8.42,c:'kr',s:'Telecom'},
+      {n:'Alibaba',co:4449171,rev:136.2,emp:124.3,mkt:43.5,c:'cn',s:'Tech'},
+      {n:'Tencent',co:6056610,rev:25.2,emp:110.5,mkt:78.4,c:'cn',s:'Tech'},
+      {n:'ICBC',co:2029800,rev:112.3,emp:419.2,mkt:34,c:'cn',s:'Finance'},
+      {n:'China Construction Bank',co:1648050,rev:102.4,emp:376.8,mkt:25.4,c:'cn',s:'Finance'},
+      {n:'Agricultural Bank',co:2211446,rev:98.6,emp:451,mkt:31.9,c:'cn',s:'Finance'},
+      {n:'Bank of China',co:1600559,rev:61.5,emp:311,mkt:21.9,c:'cn',s:'Finance'},
+      {n:'PetroChina',co:170460000,rev:389.4,emp:663,mkt:20.2,c:'cn',s:'Energy'},
+      {n:'Sinopec',co:180000000,rev:410,emp:348.6,mkt:8.48,c:'cn',s:'Energy'},
+      {n:'BYD',co:8061970,rev:106.6,emp:700,mkt:137.3,c:'cn',s:'Auto'},
+      {n:'China Mobile',co:35400000,rev:131.2,emp:450,mkt:238.1,c:'cn',s:'Telecom'},
+      {n:'Ping An',co:439291,rev:105.4,emp:273,mkt:133.4,c:'cn',s:'Finance'},
+      {n:'Baidu',co:2323459,rev:21.7,emp:39.8,mkt:144.5,c:'cn',s:'Tech'},
+      {n:'China Merchants Bank',co:3319800,rev:70.3,emp:117.2,mkt:14.1,c:'cn',s:'Finance'},
+      {n:'Xiaomi',co:116723,rev:15.3,emp:38,mkt:180.5,c:'cn',s:'Electronics'},
+      {n:'Meituan',co:2161,rev:126.2,emp:108.9,mkt:83,c:'cn',s:'Tech'},
+      {n:'Apple',co:16508000,rev:383,emp:164,mkt:301,c:'us',s:'Tech'},
+      {n:'Microsoft',co:595922,rev:211,emp:220,mkt:279,c:'us',s:'Tech'},
+      {n:'Alphabet',co:23409300,rev:282,emp:190,mkt:213,c:'us',s:'Tech'},
+      {n:'Amazon',co:68250000,rev:513,emp:1500,mkt:235,c:'us',s:'Tech'},
+      {n:'Nvidia',co:54945,rev:63,emp:26,mkt:459,c:'us',s:'Semiconductors'},
+      {n:'Tesla',co:56000000,rev:97.6,emp:140.4,mkt:137,c:'us',s:'Auto'},
+      {n:'Meta',co:8200595,rev:164.5,emp:67.3,mkt:186,c:'us',s:'Tech'},
+      {n:'Berkshire',co:54000000,rev:364.5,emp:392.4,mkt:107,c:'us',s:'Finance'},
+      {n:'JPMorgan',co:374417,rev:177.5,emp:317.2,mkt:84.5,c:'us',s:'Finance'},
+      {n:'Visa',co:95007,rev:35.9,emp:31.6,mkt:66.6,c:'us',s:'Finance'},
+      {n:'Mastercard',co:467787,rev:28.2,emp:35.3,mkt:52.1,c:'us',s:'Finance'},
+      {n:'ExxonMobil',co:729000000,rev:344.5,emp:72,mkt:47.4,c:'us',s:'Energy'},
+      {n:'Chevron',co:671000000,rev:200.9,emp:45.3,mkt:31.4,c:'us',s:'Energy'},
+      {n:'J&J',co:7028059,rev:88.8,emp:130,mkt:44.7,c:'us',s:'Pharma'},
+      {n:'UnitedHealth',co:18349044,rev:400.2,emp:400,mkt:32,c:'us',s:'Healthcare'},
+      {n:'Toyota',co:592890000,rev:326.2,emp:375.2,mkt:253.2,c:'jp',s:'Auto'},
+      {n:'Sony',co:21336000,rev:84,emp:113,mkt:171.6,c:'jp',s:'Electronics'},
+      {n:'Honda',co:296860000,rev:145.6,emp:194.9,mkt:47.8,c:'jp',s:'Auto'},
+      {n:'Nintendo',co:2499262,rev:11.5,emp:8.2,mkt:94.5,c:'jp',s:'Tech'},
+      {n:'Panasonic',co:3214443,rev:58,emp:228.4,mkt:27.9,c:'jp',s:'Electronics'},
+      {n:'Hitachi',co:206420000,rev:66.3,emp:282.7,mkt:135.4,c:'jp',s:'Industrial'},
+      {n:'SoftBank',co:11952671,rev:46.1,emp:67.2,mkt:20.6,c:'jp',s:'Telecom'},
+      {n:'Mitsubishi Corp',co:22900000,rev:133.6,emp:350,mkt:89.2,c:'jp',s:'Conglomerate'},
+      {n:'Nissan',co:1728000,rev:86.5,emp:131.7,mkt:29.5,c:'jp',s:'Auto'},
+      {n:'Canon',co:8104000,rev:30,emp:70.9,mkt:27,c:'jp',s:'Electronics'},
+      {n:'Tata Group',co:7000000,rev:180,emp:1000,mkt:403,c:'in',s:'Conglomerate'},
+      {n:'Reliance',co:2700000,rev:114.6,emp:389.4,mkt:21.8,c:'in',s:'Energy'},
+      {n:'Infosys',co:179370,rev:19.5,emp:323.7,mkt:67.9,c:'in',s:'Tech'},
+      {n:'Wipro',co:219683,rev:10.4,emp:249.5,mkt:29.3,c:'in',s:'Tech'},
+      {n:'HDFC Bank',co:351241,rev:49.1,emp:214.5,mkt:18.4,c:'in',s:'Finance'},
+      {n:'ICICI Bank',co:279836,rev:85.4,emp:182.6,mkt:114.8,c:'in',s:'Finance'},
+      {n:'Mahindra',co:94873404,rev:19.2,emp:260,mkt:48.3,c:'in',s:'Auto'},
+      {n:'Titan',co:50000,rev:7.37,emp:9,mkt:35.5,c:'in',s:'Retail'},
+      {n:'Bharti Airtel',co:1111205,rev:21.5,emp:113,mkt:134.2,c:'in',s:'Telecom'},
+      {n:'L&T',co:8058864,rev:30.8,emp:338,mkt:59.7,c:'in',s:'Engineering'},
+      {n:'Volkswagen',co:420000000,rev:357.4,emp:646.5,mkt:53.3,c:'de',s:'Auto'},
+      {n:'Mercedes-Benz',co:83000000,rev:153.4,emp:166,mkt:58.7,c:'de',s:'Auto'},
+      {n:'BMW',co:134700000,rev:150.4,emp:154.9,mkt:56,c:'de',s:'Auto'},
+      {n:'Siemens',co:121550000,rev:86.4,emp:327,mkt:219.5,c:'de',s:'Industrial'},
+      {n:'Bosch',co:335700000,rev:120,emp:417.9,mkt:12.5,c:'de',s:'Industrial'},
+      {n:'Allianz',co:39703,rev:144.9,emp:156,mkt:155,c:'de',s:'Finance'},
+      {n:'Deutsche Bank',co:1100000,rev:34.2,emp:84.5,mkt:34.2,c:'de',s:'Finance'},
+      {n:'Adidas',co:6059047,rev:27,emp:62,mkt:39.3,c:'de',s:'Retail'},
+      {n:'Bayer',co:3000000,rev:50.8,emp:93,mkt:31.4,c:'de',s:'Pharma'},
+      {n:'SAP',co:6867700,rev:39,emp:109.9,mkt:328,c:'de',s:'Tech'},
+      {n:'Shell',co:1242000000,rev:272,emp:96,mkt:220.1,c:'uk',s:'Energy'},
+      {n:'BP',co:359000000,rev:184.8,emp:100.5,mkt:87,c:'uk',s:'Energy'},
+      {n:'HSBC',co:65220000,rev:56.2,emp:211.3,mkt:154,c:'uk',s:'Finance'},
+      {n:'Unilever',co:62000000,rev:59.7,emp:149,mkt:154.5,c:'uk',s:'Consumer'},
+      {n:'GSK',co:19900000,rev:31.6,emp:68.6,mkt:88.2,c:'uk',s:'Pharma'},
+      {n:'AstraZeneca',co:6940000,rev:56.5,emp:94.3,mkt:266.4,c:'uk',s:'Pharma'},
+      {n:'Vodafone',co:9430000,rev:69.8,emp:93,mkt:28,c:'uk',s:'Telecom'},
+      {n:'Rio Tinto',co:574600000,rev:53.6,emp:60,mkt:111,c:'uk',s:'Mining'},
+      {n:'Barclays',co:68543452,rev:36.6,emp:92.4,mkt:72.5,c:'uk',s:'Finance'},
+      {n:'Rolls-Royce',co:6360611,rev:23.7,emp:42.4,mkt:95.8,c:'uk',s:'Aerospace'},
+    ];
+
+    const sortedDesc = [...all45].sort((a,b)=>b.co-a.co);
+    const sortedAsc  = [...all45].sort((a,b)=>a.co-b.co);
+    const colFor = d => CC[d.c];
+    const countries = ['US','China','Korea','Japan','India','Germany','UK'];
+    const cKeys     = ['us','cn','kr','jp','in','de','uk'];
+
+    const bH = {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false} },
+      scales:{
+        x:{ grid:{color:gc}, ticks:{color:tc,font:{size:10}} },
+        y:{ grid:{color:gc}, ticks:{color:tc,font:{size:11}} }
+      }
+    };
+
+    const top15 = sortedDesc.slice(0,15);
+    new Chart(document.getElementById('c1'),{type:'bar',indexAxis:'y',
+      data:{labels:top15.map(d=>d.n),datasets:[{data:top15.map(d=>+(d.co/1e6).toFixed(1)),backgroundColor:top15.map(colFor),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,font:{size:10},callback:v=>v+'M'}},y:{grid:{color:gc},ticks:{color:tc,font:{size:11}}}}}
+    });
+
+    const bot15 = sortedAsc.slice(0,15);
+    new Chart(document.getElementById('c2'),{type:'bar',indexAxis:'y',
+      data:{labels:bot15.map(d=>d.n),datasets:[{data:bot15.map(d=>+(d.co/1000).toFixed(1)),backgroundColor:bot15.map(colFor),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,font:{size:10},callback:v=>v+'K'}},y:{grid:{color:gc},ticks:{color:tc,font:{size:11}}}}}
+    });
+
+    const cTotals = cKeys.map(k=>all45.filter(d=>d.c===k).reduce((s,d)=>s+d.co,0)/1e6);
+    new Chart(document.getElementById('c3'),{type:'bar',
+      data:{labels:countries,datasets:[{data:cTotals.map(v=>+v.toFixed(1)),backgroundColor:Object.values(CC),borderRadius:4}]},
+      options:{...bH,scales:{x:{grid:{color:gc},ticks:{color:tc}},y:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'M'}}}}
+    });
+
+    const cAvgs = cKeys.map((k,i)=>+(cTotals[i]/all45.filter(d=>d.c===k).length).toFixed(1));
+    new Chart(document.getElementById('c4'),{type:'bar',
+      data:{labels:countries,datasets:[{data:cAvgs,backgroundColor:Object.values(CC),borderRadius:4}]},
+      options:{...bH,scales:{x:{grid:{color:gc},ticks:{color:tc}},y:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'M'}}}}
+    });
+
+    const totalCO2 = all45.reduce((s,d)=>s+d.co,0);
+    new Chart(document.getElementById('c5'),{type:'doughnut',
+      data:{labels:countries,datasets:[{data:cKeys.map(k=>+((all45.filter(d=>d.c===k).reduce((s,d)=>s+d.co,0)/totalCO2)*100).toFixed(1)),backgroundColor:Object.values(CC),borderWidth:2,borderColor:'#f8f7f4'}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},cutout:'58%'}
+    });
+
+    const sectorDef=[
+      {label:'Energy',tags:['Energy']},{label:'Automotive',tags:['Auto']},{label:'Industrial',tags:['Industrial']},
+      {label:'Finance',tags:['Finance']},{label:'Tech/Semicon',tags:['Tech','Semiconductors']},{label:'Electronics',tags:['Electronics']},
+      {label:'Pharma/Health',tags:['Pharma','Healthcare']},{label:'Telecom',tags:['Telecom']},
+      {label:'Other',tags:['Battery','Steel','Chemicals','Auto Parts','Conglomerate','Mining','Consumer','Retail','Aerospace','Engineering']},
+    ];
+    const secColors=['#E24B4A','#D85A30','#BA7517','#378ADD','#7F77DD','#D4537E','#1D9E75','#888780','#B4B2A9'];
+    new Chart(document.getElementById('c6'),{type:'bar',indexAxis:'y',
+      data:{labels:sectorDef.map(s=>s.label),datasets:[{data:sectorDef.map(s=>+(all45.filter(d=>s.tags.includes(d.s)).reduce((sum,d)=>sum+d.co,0)/1e6).toFixed(1)),backgroundColor:secColors,borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'M'}},y:{grid:{color:gc},ticks:{color:tc,font:{size:11}}}}}
+    });
+
+    const energyCos=all45.filter(d=>d.s==='Energy').sort((a,b)=>b.co-a.co);
+    new Chart(document.getElementById('c7'),{type:'bar',indexAxis:'y',
+      data:{labels:energyCos.map(d=>d.n),datasets:[{data:energyCos.map(d=>+(d.co/1e6).toFixed(1)),backgroundColor:energyCos.map(colFor),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'M'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    const autoCos=all45.filter(d=>d.s==='Auto').sort((a,b)=>b.co-a.co);
+    new Chart(document.getElementById('c8'),{type:'bar',indexAxis:'y',
+      data:{labels:autoCos.map(d=>d.n),datasets:[{data:autoCos.map(d=>+(d.co/1e6).toFixed(1)),backgroundColor:autoCos.map(d=>['Tesla','BYD'].includes(d.n)?'#1D9E75':'#E24B4A'),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'M'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    const techCos=all45.filter(d=>['Tech','Semiconductors'].includes(d.s)).sort((a,b)=>b.co-a.co);
+    new Chart(document.getElementById('c9'),{type:'bar',indexAxis:'y',
+      data:{labels:techCos.map(d=>d.n),datasets:[{data:techCos.map(d=>+(d.co/1000).toFixed(0)),backgroundColor:techCos.map(colFor),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'K'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    const finCos=all45.filter(d=>d.s==='Finance').sort((a,b)=>b.co-a.co);
+    new Chart(document.getElementById('c10'),{type:'bar',indexAxis:'y',
+      data:{labels:finCos.map(d=>d.n),datasets:[{data:finCos.map(d=>+(d.co/1000).toFixed(0)),backgroundColor:finCos.map(colFor),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'K'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    const intens=all45.filter(d=>d.rev>0).map(d=>({...d,ci:d.co/1000/d.rev})).sort((a,b)=>b.ci-a.ci).slice(0,12);
+    new Chart(document.getElementById('c11'),{type:'bar',indexAxis:'y',
+      data:{labels:intens.map(d=>d.n),datasets:[{data:intens.map(d=>+d.ci.toFixed(0)),backgroundColor:intens.map(colFor),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'K t/$B'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    const perEmp=all45.filter(d=>d.emp>0).map(d=>({...d,ce:d.co/(d.emp*1000)})).sort((a,b)=>b.ce-a.ce).slice(0,12);
+    new Chart(document.getElementById('c12'),{type:'bar',indexAxis:'y',
+      data:{labels:perEmp.map(d=>d.n),datasets:[{data:perEmp.map(d=>+d.ce.toFixed(0)),backgroundColor:perEmp.map(colFor),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+' t/emp'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    new Chart(document.getElementById('c13'),{type:'scatter',
+      data:{datasets:cKeys.map(k=>({label:countries[cKeys.indexOf(k)],data:all45.filter(d=>d.c===k).map(d=>({x:+d.rev.toFixed(1),y:+(d.co/1e6).toFixed(2)})),backgroundColor:CC[k]+'99',borderColor:CC[k],pointRadius:5}))},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: $${ctx.raw.x}B rev, ${ctx.raw.y}M t`}}},
+        scales:{x:{grid:{color:gc},ticks:{color:tc},title:{display:true,text:'Revenue ($B)',color:tc}},y:{grid:{color:gc},ticks:{color:tc},title:{display:true,text:'Emissions (M tCO₂e)',color:tc}}}}
+    });
+
+    new Chart(document.getElementById('c14'),{type:'scatter',
+      data:{datasets:cKeys.map(k=>({label:countries[cKeys.indexOf(k)],data:all45.filter(d=>d.c===k).map(d=>({x:+d.mkt.toFixed(1),y:+(d.co/1e6).toFixed(2)})),backgroundColor:CC[k]+'99',borderColor:CC[k],pointRadius:5}))},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: $${ctx.raw.x}B mkt, ${ctx.raw.y}M t`}}},
+        scales:{x:{grid:{color:gc},ticks:{color:tc},title:{display:true,text:'Market Cap ($B)',color:tc}},y:{grid:{color:gc},ticks:{color:tc},title:{display:true,text:'Emissions (M tCO₂e)',color:tc}}}}
+    });
+
+    const usCos=all45.filter(d=>d.c==='us').sort((a,b)=>b.co-a.co);
+    new Chart(document.getElementById('c15'),{type:'bar',indexAxis:'y',
+      data:{labels:usCos.map(d=>d.n),datasets:[{data:usCos.map(d=>+(d.co/1e6).toFixed(1)),backgroundColor:'#378ADD',borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'M'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    const krCos=all45.filter(d=>d.c==='kr').sort((a,b)=>b.co-a.co);
+    new Chart(document.getElementById('c16'),{type:'bar',indexAxis:'y',
+      data:{labels:krCos.map(d=>d.n),datasets:[{data:krCos.map(d=>+(d.co/1000).toFixed(0)),backgroundColor:'#D85A30',borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'K'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    const cnCos=all45.filter(d=>d.c==='cn').sort((a,b)=>b.co-a.co);
+    new Chart(document.getElementById('c17'),{type:'bar',indexAxis:'y',
+      data:{labels:cnCos.map(d=>d.n),datasets:[{data:cnCos.map(d=>+(d.co/1e6).toFixed(1)),backgroundColor:'#1D9E75',borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'M'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+
+    const jp3=all45.filter(d=>d.c==='jp').sort((a,b)=>b.co-a.co).slice(0,3);
+    const de3=all45.filter(d=>d.c==='de').sort((a,b)=>b.co-a.co).slice(0,3);
+    const uk3=all45.filter(d=>d.c==='uk').sort((a,b)=>b.co-a.co).slice(0,3);
+    new Chart(document.getElementById('c18'),{type:'bar',
+      data:{labels:['#1 Emitter','#2 Emitter','#3 Emitter'],datasets:[
+        {label:'Japan',data:jp3.map(d=>+(d.co/1e6).toFixed(1)),backgroundColor:'#D4537E',borderRadius:4},
+        {label:'Germany',data:de3.map(d=>+(d.co/1e6).toFixed(1)),backgroundColor:'#BA7517',borderRadius:4},
+        {label:'UK',data:uk3.map(d=>+(d.co/1e6).toFixed(1)),backgroundColor:'#888780',borderRadius:4},
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>{const m={Japan:jp3,Germany:de3,UK:uk3};return `${ctx.dataset.label}: ${m[ctx.dataset.label][ctx.dataIndex].n} — ${ctx.formattedValue}M t`;
+      }}}},scales:{x:{grid:{color:gc},ticks:{color:tc}},y:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'M'}}}}
+    });
+
+    new Chart(document.getElementById('c19'),{type:'bubble',
+      data:{datasets:cKeys.map(k=>({label:countries[cKeys.indexOf(k)],data:all45.filter(d=>d.c===k).map(d=>({x:+d.emp.toFixed(0),y:+(d.co/1e6).toFixed(2),r:Math.max(4,Math.sqrt(d.rev)*1.4)})),backgroundColor:CC[k]+'88',borderColor:CC[k]}))},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.raw.x}K emp, ${ctx.raw.y}M t`}}},
+        scales:{x:{grid:{color:gc},ticks:{color:tc},title:{display:true,text:'Employees (thousands)',color:tc}},y:{grid:{color:gc},ticks:{color:tc},title:{display:true,text:'Emissions (M tCO₂e)',color:tc}}},layout:{padding:16}}
+    });
+
+    const greens=sortedAsc.filter(d=>d.co<100000).sort((a,b)=>a.co-b.co);
+    new Chart(document.getElementById('c20'),{type:'bar',indexAxis:'y',
+      data:{labels:greens.map(d=>d.n),datasets:[{data:greens.map(d=>+(d.co/1000).toFixed(2)),backgroundColor:greens.map(colFor),borderRadius:4}]},
+      options:{...bH,indexAxis:'y',scales:{x:{grid:{color:gc},ticks:{color:tc,callback:v=>v+'K t'}},y:{grid:{color:gc},ticks:{color:tc}}}}
+    });
+  }
+})();
+</script>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot-wrap">
+    <div class="foot-top">
+      <div class="foot-about">
+        <a class="brand" href="../"><span class="logo-mark" aria-hidden="true"><span class="ms">storm</span><svg class="logo-svg" viewBox="11 11 88 88" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7"><circle cx="55" cy="54.75" r="26.25"/><circle cx="55" cy="54.75" r="11" stroke-width="7.5"/><path d="M28.85 57.04C28.5 53 24.5 45 24.5 35C24.5 28 25.4 22.5 27 18"/><path d="M81.15 52.46C81.5 56.5 85.5 64.5 85.5 74.5C85.5 81.5 84.6 87 83 91.5"/></g></svg></span> CO2mmitment</a>
+        <p>A student-led project that tracks corporate carbon emissions so anyone can check climate claims with real data.</p>
+        <a class="btn" href="../petitions/">Sign a petition</a>
+      </div>
+      <div>
+        <h4>Explore data</h4>
+        <ul><li><a href="../co2/">CO2 Map</a></li><li><a href="../air-quality/">Air Quality</a></li><li><a href="../insights/">Insights</a></li><li><a href="../dashboard/">CO2 Dashboard</a></li></ul>
+      </div>
+      <div>
+        <h4>Take action</h4>
+        <ul><li><a href="../petitions/">Petitions</a></li><li><a href="../esg/">ESG Best Practices</a></li></ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul><li><a href="../">Home</a></li><li><a href="../about/">About</a></li><li><a href="../contact/">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CO2mmitment. All rights reserved. Data from public sources; see About for limitations.</span>
+      <a href="#" id="toTop">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="../assets/app.js"></script>
+</body>
+</html>

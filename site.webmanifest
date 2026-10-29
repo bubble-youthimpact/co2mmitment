@@ -1,0 +1,21 @@
+{
+  "name": "CO2mmitment",
+  "short_name": "CO2mmitment",
+  "description": "A student-led, data-driven platform that visualizes corporate and national carbon emissions and air quality, so anyone can check climate claims against the numbers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#43a845",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

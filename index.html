@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CO2mmitment | Carbon emissions data, visualized</title>
+<meta name="description" content="A student-led, data-driven platform that visualizes corporate and national carbon emissions and air quality, so anyone can check climate claims against the numbers.">
+<link rel="canonical" href="https://co2mmitment.com/">
+<meta name="theme-color" content="#43a845">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CO2mmitment">
+<meta property="og:title" content="CO2mmitment | Carbon emissions data, visualized">
+<meta property="og:description" content="A student-led, data-driven platform that visualizes corporate and national carbon emissions and air quality, so anyone can check climate claims against the numbers.">
+<meta property="og:url" content="https://co2mmitment.com/">
+<meta property="og:image" content="https://co2mmitment.com/images/og-image.png">
+<meta property="og:image:alt" content="CO2mmitment | Carbon emissions data, visualized">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CO2mmitment | Carbon emissions data, visualized">
+<meta name="twitter:description" content="A student-led, data-driven platform that visualizes corporate and national carbon emissions and air quality, so anyone can check climate claims against the numbers.">
+<meta name="twitter:image" content="https://co2mmitment.com/images/og-image.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=storm&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="home" data-root="">
+<div class="site">
+<nav class="nav" id="nav" aria-label="Main">
+  <div class="nav-wrap">
+    <a class="brand" href="./" aria-label="CO2mmitment home">
+      <span class="logo-mark" aria-hidden="true"><span class="ms">storm</span><svg class="logo-svg" viewBox="11 11 88 88" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7"><circle cx="55" cy="54.75" r="26.25"/><circle cx="55" cy="54.75" r="11" stroke-width="7.5"/><path d="M28.85 57.04C28.5 53 24.5 45 24.5 35C24.5 28 25.4 22.5 27 18"/><path d="M81.15 52.46C81.5 56.5 85.5 64.5 85.5 74.5C85.5 81.5 84.6 87 83 91.5"/></g></svg></span>
+      CO2mmitment
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="links">
+      <svg class="bars" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="x" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M5 5l12 12M17 5L5 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="links" id="links">
+      <a href="about/">About</a>
+      <a href="co2/">CO2</a>
+      <a href="air-quality/">Air Quality</a>
+      <a href="insights/">Insights</a>
+      <a href="dashboard/">CO2 Dashboard</a>
+      <a href="esg/">ESG Best Practices</a>
+      <a href="petitions/">Petitions</a>
+      <a class="btn" href="contact/">Contact</a>
+    </div>
+  </div>
+</nav>
+<main>
+<section class="page show" id="p-home" data-title="CO2mmitment | Carbon emissions data, visualized">
+  <div class="wrap hero">
+    <div class="ph" style="aspect-ratio:1.5/1"><img src="images/hero.webp" alt="Factory smokestacks against a sunset sky"></div>
+    <div>
+      <h1>CO2mmitment</h1>
+      <p>Data-driven platform that visualizes global carbon emissions and promotes public awareness and behavioral change.</p>
+      <a class="btn" href="petitions/">Get Involved</a>
+    </div>
+  </div>
+  <div class="band">
+    <div class="wrap feature-grid">
+      <div class="feature">
+        <img class="f-icon" src="images/icon-co2.png" alt="">
+        <p class="eyebrow">Carbon Emissions</p>
+        <h3>Carbon Emissions Visualization Map</h3>
+        <ul class="ticks"><li>Visualization of CO₂ emissions by country, industry, and major corporations.</li><li>Yearly trends and comparisons of top emitters.</li></ul>
+        <a class="btn" href="co2/">View more</a>
+      </div>
+      <div class="feature">
+        <img class="f-icon" src="images/icon-air-quality.png" alt="">
+        <p class="eyebrow">Air Quality</p>
+        <h3>Air Quality Map</h3>
+        <ul class="ticks"><li>Integration with air quality sensors.</li><li>Real-time map showing PM2.5, NO₂ and other pollutants.</li></ul>
+        <a class="btn" href="air-quality/">View more</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <h2 class="sec" style="text-align:center">Our Petitions</h2>
+    <div class="pet-grid" data-petitions></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="foot-wrap">
+    <div class="foot-top">
+      <div class="foot-about">
+        <a class="brand" href="./"><span class="logo-mark" aria-hidden="true"><span class="ms">storm</span><svg class="logo-svg" viewBox="11 11 88 88" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="7"><circle cx="55" cy="54.75" r="26.25"/><circle cx="55" cy="54.75" r="11" stroke-width="7.5"/><path d="M28.85 57.04C28.5 53 24.5 45 24.5 35C24.5 28 25.4 22.5 27 18"/><path d="M81.15 52.46C81.5 56.5 85.5 64.5 85.5 74.5C85.5 81.5 84.6 87 83 91.5"/></g></svg></span> CO2mmitment</a>
+        <p>A student-led project that tracks corporate carbon emissions so anyone can check climate claims with real data.</p>
+        <a class="btn" href="petitions/">Sign a petition</a>
+      </div>
+      <div>
+        <h4>Explore data</h4>
+        <ul><li><a href="co2/">CO2 Map</a></li><li><a href="air-quality/">Air Quality</a></li><li><a href="insights/">Insights</a></li><li><a href="dashboard/">CO2 Dashboard</a></li></ul>
+      </div>
+      <div>
+        <h4>Take action</h4>
+        <ul><li><a href="petitions/">Petitions</a></li><li><a href="esg/">ESG Best Practices</a></li></ul>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul><li><a href="./">Home</a></li><li><a href="about/">About</a></li><li><a href="contact/">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CO2mmitment. All rights reserved. Data from public sources; see About for limitations.</span>
+      <a href="#" id="toTop">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="assets/app.js"></script>
+</body>
+</html>
