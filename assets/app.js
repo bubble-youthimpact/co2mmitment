@@ -248,25 +248,47 @@ $('#contact-form').addEventListener('submit', async e => {
   data._subject = 'CO2mmitment contact: ' + data.name;
   data._replyto = data.email;
   data._template = 'table';
+  if(location.protocol === 'file:'){
+    note.className = 'form-note form-error';
+    note.textContent = 'The contact form only works on the live website, not when the file is opened from your computer.';
+    btn.disabled = false; btn.textContent = 'Send message';
+    return;
+  }
+  let r = null, j = {};
   try{
-    const r = await fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
+    r = await fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
       method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'}, body:JSON.stringify(data)
     });
-    const j = await r.json().catch(()=>({}));
+    j = await r.json().catch(()=>({}));
     console.log('[FormSubmit]', r.status, j);
-    if(!r.ok || j.success === 'false' || j.success === false) throw Object.assign(new Error(j.message || 'send failed'), {fs:j.message});
-    f.reset(); f.hidden = true; $('#contact-sent').hidden = false;
   }catch(err){
+    // Couldn't reach FormSubmit in the background (blocked by the browser, an extension or the network).
+    // Fall back to a normal form post, which FormSubmit always accepts; it sends the visitor back here afterwards.
+    console.warn('[FormSubmit] background send failed', err);
+    if(MULTI){ postToFormSubmit(data); return; }
     note.className = 'form-note form-error';
-    console.warn('[FormSubmit] failed', err);
-    note.textContent = location.protocol === 'file:'
-      ? 'The contact form only works on the live website, not when the file is opened from your computer.'
-      : err.fs ? 'FormSubmit says: ' + err.fs
-      : 'Your message couldn’t be sent. Check your connection and try again.';
-  }finally{
+    note.textContent = 'This preview can’t reach FormSubmit. The form sends on the live website.';
     btn.disabled = false; btn.textContent = 'Send message';
+    return;
   }
+  if(r.ok && !(j.success === 'false' || j.success === false)){
+    f.reset(); f.hidden = true; $('#contact-sent').hidden = false;
+  }else{
+    note.className = 'form-note form-error';
+    note.textContent = j.message ? 'FormSubmit says: ' + j.message : 'Your message couldn’t be sent (error ' + r.status + '). Try again in a few minutes.';
+  }
+  btn.disabled = false; btn.textContent = 'Send message';
 });
+function postToFormSubmit(data){
+  const form = document.createElement('form');
+  form.method = 'POST'; form.action = 'https://formsubmit.co/' + CONTACT_EMAIL; form.hidden = true;
+  const back = new URL(location.href); back.search = '?sent=1'; back.hash = '';
+  Object.entries({...data, _captcha:'false', _next: back.href}).forEach(([k,v])=>{
+    const i = document.createElement('input'); i.type = 'hidden'; i.name = k; i.value = v; form.appendChild(i);
+  });
+  document.body.appendChild(form); form.submit();
+}
+if(new URLSearchParams(location.search).get('sent') === '1'){ $('#contact-form').hidden = true; $('#contact-sent').hidden = false; }
 $('#c-again').addEventListener('click', ()=>{ $('#contact-sent').hidden = true; $('#contact-form').hidden = false; $('#c-name').focus(); });
 }
 
