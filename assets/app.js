@@ -129,13 +129,15 @@ $('#lb').addEventListener('touchend', e => { if(touchX==null) return; const dx =
 // Paste your Firebase web app config here (Firebase console → Project settings → Your apps → Config).
 // If this is set to null, signing works in demo mode: it only counts in the visitor's own browser.
 const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyD8zo0RNKavtrCkRtDOxL9Fmn6SSNqRAao",
-  authDomain: "co2mmitment-273bf.firebaseapp.com",
-  projectId: "co2mmitment-273bf",
-  storageBucket: "co2mmitment-273bf.firebasestorage.app",
-  messagingSenderId: "581760742612",
-  appId: "1:581760742612:web:3200880f0ecee28de1f741"
+  apiKey: "AIzaSyDO-6m8Ypxvdgk7hW4XZvqTYkcbw3XPsA0",
+  authDomain: "co2mmitment-582bf.firebaseapp.com",
+  projectId: "co2mmitment-582bf",
+  storageBucket: "co2mmitment-582bf.firebasestorage.app",
+  messagingSenderId: "341592457952",
+  appId: "1:341592457952:web:04ec47617cb0f5da2f8685"
 };
+// Which Firestore database holds the petitions.
+const FIRESTORE_DATABASE = '(default)';
 const FB_VERSION = '10.12.2';
 
 let current = null, unsubscribe = null, fbPromise = null;
@@ -147,7 +149,7 @@ function getFirebase(){
     const base = `https://www.gstatic.com/firebasejs/${FB_VERSION}/`;
     const [appMod, fs] = await Promise.all([import(base+'firebase-app.js'), import(base+'firebase-firestore.js')]);
     const app = appMod.initializeApp(FIREBASE_CONFIG);
-    return { db: fs.getFirestore(app), ...fs };
+    return { db: fs.getFirestore(app, FIRESTORE_DATABASE), ...fs };
   })().catch(err => { console.warn('Firebase unavailable', err); return null; });
   return fbPromise;
 }
@@ -192,7 +194,8 @@ async function explainSignError(err, p){
   if(err.code === 'unavailable') return 'Couldn’t reach the signature database. Check your connection and try again.';
   const msg = String(err.message || '');
   if(/Datastore Mode/i.test(msg)) return 'Setup problem: the Firestore database is in Datastore mode. The site needs a database in Firestore Native mode.';
-  if(/does not exist/i.test(msg)) return 'Setup problem: the project has no “(default)” Firestore database.';
+  if(/database was deleted/i.test(msg)) return `Setup problem: Firestore says the “${FIRESTORE_DATABASE}” database was deleted.`;
+  if(/does not exist/i.test(msg)) return `Setup problem: the project has no “${FIRESTORE_DATABASE}” Firestore database yet.`;
   if(/API has not been used|is disabled|SERVICE_DISABLED/i.test(msg)) return 'Setup problem: the Cloud Firestore API is turned off for this project. Turn it on in Google Cloud Console.';
   if(err.code !== 'permission-denied') return `Your signature couldn’t be saved (${err.code || 'error'}: ${msg || 'no details'}).`;
   // Permission denied: either this email already signed, or the database isn't set up as the rules expect.
