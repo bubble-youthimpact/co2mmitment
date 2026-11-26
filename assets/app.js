@@ -171,7 +171,7 @@ function showPetition(id){
   $('#pd-body').innerHTML = p.body;
   const signedHere = !!store('signed-'+p.id);
   $('#sign-note').className = 'form-note';
-  $('#sign-note').textContent = signedHere ? 'You signed this petition.' : '';
+  $('#sign-note').textContent = '';
   // Show the last known number right away, then switch to the live count.
   renderCount(p, p.signatures + (FIREBASE_CONFIG ? 0 : (signedHere ? 1 : 0)));
   if(unsubscribe){ unsubscribe(); unsubscribe = null; }
@@ -179,9 +179,30 @@ function showPetition(id){
     if(!fb || current !== p) return;
     unsubscribe = fb.onSnapshot(fb.doc(fb.db, 'petitions', p.id),
       snap => { if(snap.exists()) renderCount(p, snap.data().count); },
-      err => console.warn('Live count unavailable', err));
+      err => console.warn('[Petition] live count unavailable', err.code, err));
   });
   return true;
+}
+
+// Works out why a signature failed, so setup problems are easy to spot.
+async function explainSignError(err, p){
+  if(err.code === 'already') return 'This email has already signed this petition.';
+  if(err.code === 'sdk-failed') return 'Couldn’t connect to the signature database. An ad blocker or network filter may be blocking Firebase; try another browser or turn the blocker off for this site.';
+  if(err.code === 'not-found') return `Setup problem: there’s no “${p.id}” document in the “petitions” collection in Firestore.`;
+  if(err.code === 'unavailable') return 'Couldn’t reach the signature database. Check your connection and try again.';
+  if(err.code !== 'permission-denied') return `Your signature couldn’t be saved (${err.code || err.message}).`;
+  // Permission denied: either this email already signed, or the database isn't set up as the rules expect.
+  try{
+    const fb = await getFirebase();
+    const snap = await fb.getDoc(fb.doc(fb.db, 'petitions', p.id));
+    if(!snap.exists()) return `Setup problem: there’s no “${p.id}” document in the “petitions” collection in Firestore.`;
+    const d = snap.data();
+    if(typeof d.count !== 'number') return `Setup problem: the “count” field in “${p.id}” must be a number (int64), not ${d.count === undefined ? 'missing' : typeof d.count}.`;
+    return 'This email has already signed this petition.';
+  }catch(e){
+    if(e.code === 'permission-denied') return 'Setup problem: the Firestore security rules haven’t been published (reading petitions is blocked).';
+    return `Your signature couldn’t be saved (${e.code || e.message}).`;
+  }
 }
 
 async function sha256(text){
@@ -205,6 +226,7 @@ $('#sign-form').addEventListener('submit', async e => {
   btn.disabled = true; btn.textContent = 'Signing…';
   try{
     const fb = await getFirebase();
+    if(!fb && FIREBASE_CONFIG) throw Object.assign(new Error('Firebase did not load'), {code:'sdk-failed'});
     if(!fb){
       // Demo mode (no Firebase config yet)
       if(store('signed-'+p.id)) throw Object.assign(new Error(), {code:'already'});
@@ -222,10 +244,9 @@ $('#sign-form').addEventListener('submit', async e => {
     f.reset();
     note.textContent = 'Thank you. Your signature was added.';
   }catch(err){
+    console.warn('[Petition] signing failed', err);
     note.className = 'form-note form-error';
-    note.textContent = (err.code === 'already' || err.code === 'permission-denied')
-      ? 'This email has already signed this petition.'
-      : 'Your signature couldn’t be saved. Check your connection and try again.';
+    note.textContent = await explainSignError(err, p);
   }finally{
     btn.disabled = false; btn.textContent = 'Sign this petition';
   }
@@ -288,7 +309,10 @@ function postToFormSubmit(data){
   });
   document.body.appendChild(form); form.submit();
 }
-if(new URLSearchParams(location.search).get('sent') === '1'){ $('#contact-form').hidden = true; $('#contact-sent').hidden = false; }
+if(new URLSearchParams(location.search).get('sent') === '1'){
+  $('#contact-form').hidden = true; $('#contact-sent').hidden = false;
+  history.replaceState(null, '', location.pathname); // a refresh shows the empty form again
+}
 $('#c-again').addEventListener('click', ()=>{ $('#contact-sent').hidden = true; $('#contact-form').hidden = false; $('#c-name').focus(); });
 }
 
