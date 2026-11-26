@@ -190,7 +190,11 @@ async function explainSignError(err, p){
   if(err.code === 'sdk-failed') return 'Couldn’t connect to the signature database. An ad blocker or network filter may be blocking Firebase; try another browser or turn the blocker off for this site.';
   if(err.code === 'not-found') return `Setup problem: there’s no “${p.id}” document in the “petitions” collection in Firestore.`;
   if(err.code === 'unavailable') return 'Couldn’t reach the signature database. Check your connection and try again.';
-  if(err.code !== 'permission-denied') return `Your signature couldn’t be saved (${err.code || err.message}).`;
+  const msg = String(err.message || '');
+  if(/Datastore Mode/i.test(msg)) return 'Setup problem: the Firestore database is in Datastore mode. The site needs a database in Firestore Native mode.';
+  if(/does not exist/i.test(msg)) return 'Setup problem: the project has no “(default)” Firestore database.';
+  if(/API has not been used|is disabled|SERVICE_DISABLED/i.test(msg)) return 'Setup problem: the Cloud Firestore API is turned off for this project. Turn it on in Google Cloud Console.';
+  if(err.code !== 'permission-denied') return `Your signature couldn’t be saved (${err.code || 'error'}: ${msg || 'no details'}).`;
   // Permission denied: either this email already signed, or the database isn't set up as the rules expect.
   try{
     const fb = await getFirebase();
@@ -200,8 +204,9 @@ async function explainSignError(err, p){
     if(typeof d.count !== 'number') return `Setup problem: the “count” field in “${p.id}” must be a number (int64), not ${d.count === undefined ? 'missing' : typeof d.count}.`;
     return 'This email has already signed this petition.';
   }catch(e){
+    if(/API has not been used|is disabled|SERVICE_DISABLED/i.test(String(e.message))) return 'Setup problem: the Cloud Firestore API is turned off for this project. Turn it on in Google Cloud Console.';
     if(e.code === 'permission-denied') return 'Setup problem: the Firestore security rules haven’t been published (reading petitions is blocked).';
-    return `Your signature couldn’t be saved (${e.code || e.message}).`;
+    return `Your signature couldn’t be saved (${e.code || 'error'}: ${e.message || 'no details'}).`;
   }
 }
 
