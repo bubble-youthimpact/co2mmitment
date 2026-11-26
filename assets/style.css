@@ -132,7 +132,13 @@ h2.sec{font-size:30px;font-weight:600;margin:56px 0 18px}
 .field input:focus,.field textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px var(--green-tint)}
 .form-note{font-size:13px;color:var(--green-dark);margin-top:12px;text-align:center;min-height:1.2em}
 .form-note:empty{display:none}
-#sign-form{padding-bottom:32px}
+/* sign box: equal visible space above the heading letters and below the button */
+#sign-form h2{line-height:1.2;margin-bottom:20px}
+#sign-form{padding-bottom:33px}
+@supports (text-box: trim-both cap alphabetic){
+  #sign-form h2{text-box:trim-both cap alphabetic;margin-bottom:24px}
+  #sign-form{padding-bottom:27px}
+}
 .contact{margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);background:var(--bg);border-radius:20px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.04),0 12px 40px -18px rgba(27,28,26,.18)}
 @media (max-width:780px){.contact{grid-template-columns:1fr}}
 .contact-info{background:var(--green-tint);padding:44px 40px;display:flex;flex-direction:column;gap:22px}
